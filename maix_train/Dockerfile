@@ -1,5 +1,4 @@
-# ベースイメージとしてx86_64のPythonを使用
-FROM python:3.8
+FROM python:3.7
 
 USER root
 
@@ -21,5 +20,8 @@ COPY requirements.txt /root/
 RUN apt-get install -y vim less
 RUN pip install --upgrade pip
 RUN pip install --upgrade setuptools
+
+# Add this line
+RUN apt-get install -y libgl1-mesa-glx
 
 RUN pip install -r /root/requirements.txt
