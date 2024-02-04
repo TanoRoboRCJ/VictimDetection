@@ -1,4 +1,6 @@
-FROM python:3.9
+# ベースイメージとしてx86_64のPythonを使用
+FROM python:3.9.0
+
 USER root
 
 RUN apt-get update
@@ -9,6 +11,10 @@ ENV LANGUAGE ja_JP:ja
 ENV LC_ALL ja_JP.UTF-8
 ENV TZ JST-9
 ENV TERM xterm
+
+COPY requirements.txt /root/
+
+RUN apt-get install -y vim less
 
 COPY requirements.txt /root/
 
