@@ -351,10 +351,13 @@ class Train():
             @return (ok, msg) 是否出错 (bool, str)
         '''
         p =subprocess.Popen([ncc_path, "-i", "tflite", "-o", "k210model", "--dataset", images_path, tf_lite_path, kmodel_path], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        print("ARGS:", p.args)
+        print("################# COMMAND TO CONVERT TO KMODEL #################")
 
         for arg in p.args:
             print(arg, end=" ")
+        print("\n")
+
+        print("##################################")
             
         try:
             output, err = p.communicate( )
