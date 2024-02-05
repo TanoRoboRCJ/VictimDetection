@@ -352,6 +352,10 @@ class Train():
         '''
         p =subprocess.Popen([ncc_path, "-i", "tflite", "-o", "k210model", "--dataset", images_path, tf_lite_path, kmodel_path], stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         print("ARGS:", p.args)
+
+        for arg in p.args:
+            print(arg, end=" ")
+            
         try:
             output, err = p.communicate( )
             res = p.returncode
