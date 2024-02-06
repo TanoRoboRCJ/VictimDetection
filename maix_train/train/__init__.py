@@ -176,14 +176,17 @@ class Train():
     def classifier_train(self, log):
         # 检测 GPU 可用,选择一个可用的 GPU 使用
         try:
-            gpu = gpu_utils.select_gpu(memory_require = config.classifier_train_gpu_mem_require, tf_gpu_mem_growth=False)
+            ## tensorflow metal
+            gpu = gpu_utils.select_gpu(memory_require = 0, tf_gpu_mem_growth=False)
+            # gpu = gpu_utils.select_gpu(memory_require = 0, tf_gpu_mem_growth=False)
+
         except Exception:
             gpu = None
         if gpu is None:
             if not config.allow_cpu:
                 log.e("no free GPU")
                 raise Exception((TrainFailReason.ERROR_NODE_BUSY, "node no enough GPU or GPU memory and not support CPU train"))
-            log.i("no GPU, will use [CPU]")
+            log.i("ano GPU, will use [CPU]")
         else:
             log.i("select", gpu)
 

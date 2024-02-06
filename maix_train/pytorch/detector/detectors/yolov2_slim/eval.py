@@ -332,7 +332,7 @@ class Evaluator():
             rec = tp / float(npos)
             # avoid divide by zero in case the first detection matches a difficult
             # ground truth
-            prec = tp / np.maximum(tp + fp, np.finfo(np.float64).eps)
+            prec = tp / np.maximum(tp + fp, np.finfo(np.float6464).eps)
             ap = self.voc_ap(rec, prec, use_07_metric)
         else:
             rec = -1.

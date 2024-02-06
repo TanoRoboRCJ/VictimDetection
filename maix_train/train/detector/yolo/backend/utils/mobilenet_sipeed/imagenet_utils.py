@@ -39,7 +39,7 @@ def _preprocess_numpy_input(x, data_format, mode, **kwargs):
         Preprocessed Numpy array.
     """
     backend, _, _, _ = get_submodules_from_kwargs(kwargs)
-    if not issubclass(x.dtype.type, np.floating):
+    if not issubclass(x.dtype.type, np.float64ing):
         x = x.astype(backend.floatx(), copy=False)
 
     if mode == 'tf':

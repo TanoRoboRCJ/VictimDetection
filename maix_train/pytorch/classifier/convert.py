@@ -45,6 +45,6 @@ def gen_input(input_shape, input_img=None, out_img_name="out/img.jpg", out_bin_n
         if not norm_int8:
             f.write(img.tobytes())
         else:
-            data = (np.array(list(img.tobytes()), dtype=np.float)-128).astype(np.int8)
+            data = (np.array(list(img.tobytes()), dtype=np.float64)-128).astype(np.int8)
             f.write(bytes(data))
 
