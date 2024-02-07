@@ -7,11 +7,11 @@ import KPU as kpu
 sensor.reset()
 sensor.set_pixformat(sensor.RGB565)
 sensor.set_framesize(sensor.QVGA)
-sensor.set_windowing((0, 0, 224, 224)
-sensor.run()
+sensor.set_windowing((0, 0, 224, 224))
+sensor.run(1)
 
 labels = ['H', 'S', 'U']
-BLACK = (0, 22, -32, 26, -34, 26)
+BLACK = (0, 32, -32, 26, -34, 26)
 print(labels)
 task = kpu.load("/sd/m.kmodel")
 
@@ -32,7 +32,7 @@ while(True):
     pmax = max(plist)
     print("pmax:" + str(pmax) )
 #   Avoiding Exception for index of undef result.
-    if pmax >=0 and pmax <=1:
+    if pmax >=0.997 and pmax <=1:
         max_index = plist.index(pmax)
         print("DETECT:" + labels[max_index].strip())
     else:
