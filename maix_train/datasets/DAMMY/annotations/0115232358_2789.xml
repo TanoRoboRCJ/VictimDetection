@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<annotation>
+  <filename>0115232358_2789.jpg</filename>
+  <size>
+    <width>224</width>
+    <height>224</height>
+    <depth>3</depth>
+  </size>
+  <segmented>0</segmented>
+  <object>
+    <name>LTR_S</name>
+    <truncated>0</truncated>
+    <difficult>0</difficult>
+    <occluded>0</occluded>
+    <bndbox>
+      <xmin>42</xmin>
+      <ymin>42</ymin>
+      <xmax>123</xmax>
+      <ymax>142</ymax>
+    </bndbox>
+  </object>
+</annotation>
