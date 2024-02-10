@@ -9,7 +9,6 @@ xml_names = []
 labels = []
 each_label_file_counts = []
 
-
 def create_dest_dir():
     if os.path.exists(DEST_DIR_PATH):
         print("Directory " + DEST_DIR_PATH + " already exists. Data will be deleted.")
@@ -51,13 +50,13 @@ def copy_xml_files(xml_name):
     if label.text not in labels:
         labels.append(label.text)
         each_label_file_counts.append(0)
-        
+
         os.mkdir(xml_dest_dir)
 
     xml_dest_name = str(each_label_file_counts[labels.index(label.text)]) + ".xml"
 
-    # Change image file name
-    xml_content.find(".//filename").text = xml_dest_name + ".jpg"
+    # Change image file path
+    xml_content.find(".//filename").text = xml_dest_name.replace(".xml", ".jpg")
 
     # Copy xml file
     print("Copying " + xml_name + " to " + xml_dest_dir + xml_dest_name)
