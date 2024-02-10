@@ -1,5 +1,7 @@
-ORIGIN_DIR_PATH = "./DAMMY"
-DEST_DIR_PATH = "./DAMMY_FORMATTED"
+ORIGIN_DIR_PATH = "./dataset/DAMMY"
+DEST_DIR_PATH = "./dataset/DAMMY_FORMATTED"
+
+START_INDEX = 0
 
 import os
 import shutil
@@ -49,8 +51,7 @@ def copy_xml_files(xml_name):
 
     if label.text not in labels:
         labels.append(label.text)
-        each_label_file_counts.append(0)
-
+        each_label_file_counts.append(START_INDEX)
         os.mkdir(xml_dest_dir)
 
     xml_dest_name = str(each_label_file_counts[labels.index(label.text)]) + ".xml"
@@ -98,6 +99,11 @@ def __main__():
         each_label_file_counts[labels.index(label)] += 1
 
         print("")
+
+    label_text = open(DEST_DIR_PATH + '/labels.txt', 'x')
+    for label in labels:
+        label_text.write(label + "\n")
+    label_text.close()
 
     print("Done")
 
