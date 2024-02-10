@@ -669,6 +669,7 @@ class Detector(Train_Base):
                     msg += ", will automatically reshape"
                     self.on_warning_message(msg)
             # load image
+            print(result['path'])
             dir_name = os.path.split(os.path.split(result['path'])[0])[-1] # class1 / images
             # images/class1/tututututut.jpg
             img_path = os.path.join(img_dir, dir_name, result['filename'])
@@ -680,7 +681,7 @@ class Detector(Train_Base):
                 if os.path.exists(img_path):
                     img = np.array(Image.open(img_path), dtype='uint8')
                 else:
-                    result = f"decode xml {xml_path}, can not find iamge: {result['path']}"
+                    result = f"decode xml {xml_path}, can not find image: {result['path']}"
                     self.on_warning_message(result)
                     continue
             # load bndboxes
