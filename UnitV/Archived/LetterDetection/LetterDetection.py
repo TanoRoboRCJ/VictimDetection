@@ -12,16 +12,16 @@ import KPU as kpu
 ## CONFIG 試合前にここを調整
 CALIBRATION = None  ######### 試合時は絶対コメントアウトしない！！！#########
 GAIN = 3.0
-WHITE_BAL = [(76.0, 64.0, 136.0)]
+WHITE_BAL = [(64.0, 81.0, 195.0)]
 
 AREA = 3000
 
 ## CONFIG YOLO
-BLACK = (0, 22, -32, 26, -34, 26)
-LABELS = ['U', 'S', 'H']
+BLACK = (22, 62, -40, 15, -36, 11)
+LABELS = ['H', 'S', 'U']
 
-anchors = [2.06, 2.62, 3.06, 3.91, 4.38, 5.34, 2.53, 3.16, 3.59, 4.53]
-model_addr = "/sd/model-100630.kmodel"
+anchors = [4.3125, 5.25, 2.46875, 3.09375, 2.03125, 2.5625, 3.0, 3.8124999999999996, 3.5, 4.4375]
+model_addr = "/sd/m0211.kmodel"
 
 ## GPIO
 fm.register(18, fm.fpioa.GPIO1)
@@ -89,7 +89,7 @@ def main():
     calibration()
 
     task = kpu.load(model_addr)
-    kpu.init_yolo2(task, 0.82, 0.3, 5, anchors)
+    kpu.init_yolo2(task, 0.3, 0.3, 5, anchors)
 
     while(True):
         led.set_led(0, LED_OFF)
@@ -100,7 +100,7 @@ def main():
         victim_exists = False
 
         # 文字認識
-        #img.binary([BLACK])
+        img.binary([BLACK])
         img.pix_to_ai()
         #try:
         objects = kpu.run_yolo2(task, img)
@@ -110,16 +110,16 @@ def main():
         yolo_exists = 0
         yolo_label = 0
 
-        #if objects:
-            #for obj in objects:
-                #obj_width = obj.rect()[2]
-                #obj_height = obj.rect()[3]
+        if objects:
+            for obj in objects:
+                obj_width = obj.rect()[2]
+                obj_height = obj.rect()[3]
 
-                #if (obj_width * obj_height >= AREA):
-                    #yolo_exists += 1
-                    #yolo_label = obj.classid()
+                if (obj_width * obj_height >= AREA):
+                    yolo_exists += 1
+                    yolo_label = obj.classid()
 
-                    #img.draw_rectangle(obj.rect(), color = (255, 0, 0) ,tickness = 5)
+                    img.draw_rectangle(obj.rect(), color = (255, 0, 0) ,tickness = 5)
 
         #except:
             #pass
