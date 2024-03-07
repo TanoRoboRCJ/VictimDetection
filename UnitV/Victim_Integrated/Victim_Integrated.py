@@ -3,24 +3,30 @@ import image
 from fpioa_manager import *
 from Maix import GPIO
 from machine import UART
+from machine import Timer,PWM
 import time
 import math
 from modules import ws2812
+from board import board_info
 
 import KPU as kpu
 
 ## CONFIG 試合前にここを調整
 CALIBRATION = None      ######### 試合時は絶対コメントアウトしない！！！#########
 ENABLE_BINARY = None    ######### 試合時は絶対コメントアウトしない！！！#########
+FOR_DEBUGGING = None
 
-GAIN = 3.0
-WHITE_BAL = [(76.0, 64.0, 136.0)]
+IS_LEFT = False
+IS_LEFT = True
 
-RED = (29, 54, 12, 83, -2, 64)
-YELLOW = (46, 76, -25, 16, 31, 82)
-GREEN = (37, 48, -40, -13, -16, 15)
+GAIN = 20.0
+WHITE_BAL = [(79.0, 64.0, 107.0)]
 
-BLACK = (1, 33, -33, 5, -33, 9)
+RED = (38, 87, 29, 71, 20, 62)
+YELLOW = (47, 100, -18, 22, 32, 81)
+GREEN = (39, 76, -48, -15, -10, 32)
+
+BLACK = (2, 67, -44, 29, -44, 27)
 AREA = 3000
 
 SENSIBILITY = [0.90, 0.90, 0.82]
@@ -32,14 +38,15 @@ anchors = [2.25, 2.78, 2.62, 3.28, 3.25, 4.09, 4.12, 5.03, 1.78, 2.41]
 model_addr = "/sd/model-100645.kmodel"
 
 ## GPIO
-fm.register(18, fm.fpioa.GPIO1)
-btn_a = GPIO(GPIO.GPIO1, GPIO.IN, GPIO.PULL_UP)
-fm.register(19, fm.fpioa.GPIO2)
-btn_b = GPIO(GPIO.GPIO2, GPIO.IN, GPIO.PULL_UP)
+if ('FOR_DEBUGGING' in globals()):
+    fm.register(34,fm.fpioa.UART1_TX)
+    fm.register(35,fm.fpioa.UART1_RX)
+    uart = UART(UART.UART1, 115200, 8, None, 1, timeout=1000, read_buf_len=4096)
+else :
+    tim = Timer(Timer.TIMER0, Timer.CHANNEL0, mode=Timer.MODE_PWM)
+    light = PWM(tim, freq=500000, duty=50, pin=34)
+    light.duty(70)
 
-fm.register(34,fm.fpioa.UART1_TX) #逆じゃね？
-fm.register(35,fm.fpioa.UART1_RX)
-uart = UART(UART.UART1, 115200, 8, None, 1, timeout=1000, read_buf_len=4096)
 
 led = ws2812(8,1)
 
@@ -78,8 +85,10 @@ def init():
     sensor.set_pixformat(sensor.RGB565)
     sensor.set_framesize(sensor.QVGA)
     sensor.set_windowing((0, 0, 224, 224))
-    #sensor.set_hmirror(True)
-    #sensor.set_vflip(True)
+
+    if IS_LEFT:
+        sensor.set_hmirror(True)
+        sensor.set_vflip(True)
 
     sensor.set_auto_gain(False, gain_db = GAIN, gain_db_ceiling = GAIN)
     sensor.set_auto_whitebal(False, rgb_gain_db = WHITE_BAL[0])
@@ -105,14 +114,15 @@ def main():
         led.set_led(0, LED_OFF)
         img = sensor.snapshot()           # 画像を取得
 
-        img.rotation_corr(z_rotation = 90)
-
         victim_exists = False
 
         ######### 色認識 #########
         for i in range(3):
             threshold = [RED, YELLOW, GREEN]
-            blobs = img.find_blobs([threshold[i]])
+            try:
+                blobs = img.find_blobs([threshold[i]])
+            except:
+                pass
 
             if blobs:
                 for b in blobs:
@@ -122,7 +132,8 @@ def main():
                         img.draw_rectangle(b[0:4], color = COLOR[i], thickness=3)
                         img.draw_cross(b[5], b[6])
 
-                        uart.write(LETTER[i])
+                        if ('FOR_DEBUGGING' in globals()):
+                            uart.write(LETTER[i])
                         print(LETTER[i])
 
                         led.set_led(0, (5, 5, 5))
@@ -164,7 +175,9 @@ def main():
         if yolo_counter >= 2:
             victim_exists = True
 
-            uart.write(LABELS[obj.classid()])
+            if ('FOR_DEBUGGING' in globals()):
+                uart.write(LABELS[obj.classid()])
+
             print(obj.value())
             print(LABELS[obj.classid()])
 
@@ -175,7 +188,8 @@ def main():
         led.display()
 
         if not victim_exists:
-            uart.write('N')
+            if ('FOR_DEBUGGING' in globals()):
+                uart.write('N')
             print('No Victim Detected')
 
         #except:

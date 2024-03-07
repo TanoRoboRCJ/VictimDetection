@@ -49,9 +49,10 @@ banner = '''
 | |  | |  / ____ \   _| |_   / . \  | |         | |
 |_|  |_| /_/    \_\ |_____| /_/ \_\ |_|         |_|
 
-@shirokuma89dev
-kumachan!!!!
-hello
+M5StickV by M5Stack : https://m5stack.com/
+M5StickV Wiki       : https://docs.m5stack.com
+Co-op by Sipeed     : https://www.sipeed.com
+shirokuma89dev 0306
 '''
 
 dirList = os.listdir()

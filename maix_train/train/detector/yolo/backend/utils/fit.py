@@ -164,7 +164,7 @@ def _create_callbacks(save_best_weights_path, other_callbacks=[]):
     # Make a few callbacks
     early_stop = EarlyStopping(monitor='val_loss', 
                        min_delta=0.0001, 
-                       patience=80, 
+                       patience=20, 
                        mode='min', 
                        verbose=1,
                        restore_best_weights=True)
