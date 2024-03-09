@@ -39,15 +39,13 @@ def train(model,
     tflite_path = os.path.splitext(save_final_weights_path)[0]+".tflite"
     train_start = time.time()
     try:
-        history = model.fit_generator(generator = train_batch_gen,
-                        steps_per_epoch  = len(train_batch_gen), 
-                        epochs           = nb_epoch,
-                        validation_data  = valid_batch_gen,
-                        validation_steps = len(valid_batch_gen),
-                        callbacks        = _create_callbacks(save_best_weights_path, other_callbacks=progress_callbacks),
-                        verbose          = 1,
-                        workers          = 3,
-                        max_queue_size   = 8)
+        history = model.fit(x = train_batch_gen,
+                    steps_per_epoch = len(train_batch_gen),
+                    epochs = nb_epoch,
+                    validation_data = valid_batch_gen,
+                    validation_steps = len(valid_batch_gen),
+                    callbacks = _create_callbacks(save_best_weights_path, other_callbacks=progress_callbacks),
+                    verbose = 1)
     except KeyboardInterrupt:
         save_model(model, save_final_weights_path, tflite_path)
         raise

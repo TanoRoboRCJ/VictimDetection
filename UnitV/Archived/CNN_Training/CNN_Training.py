@@ -1,139 +1,106 @@
-BLACK = (20, 71, -17, 5, -12, 8)
-
-GAIN = 50.0
-WHITE_BAL = [(64.0, 81.0, 231.0)]
-
-import gc
-import image
 import sensor
-import sys
-import time
-import uos
-import os
-import KPU as kpu
+import image
 from fpioa_manager import *
-from machine import I2C
-from Maix import I2S, GPIO
+from Maix import GPIO
+from machine import UART
+from machine import Timer,PWM
+import time
+import math
 from modules import ws2812
+from board import board_info
 
-a = class_ws2812 = ws2812(8,1)
-BRIGHTNESS = 0x10
+import KPU as kpu
 
-fm.register(18, fm.fpioa.GPIO1)
-but_a=GPIO(GPIO.GPIO1, GPIO.IN, GPIO.PULL_UP) #PULL_UP is required here!
+## CONFIG 試合前にここを調整
+CALIBRATION = None      ######### 試合時は絶対コメントアウトしない！！！#########
+ENABLE_BINARY = None    ######### 試合時は絶対コメントアウトしない！！！#########
+FOR_DEBUGGING = None
 
-fm.register(19, fm.fpioa.GPIO2)
-but_b = GPIO(GPIO.GPIO2, GPIO.IN, GPIO.PULL_UP) #PULL_UP is required here!
+IS_LEFT = True
 
-def findMaxIDinDir(dirname):
-    larNum = -1
-    try:
-        dirList = uos.listdir(dirname)
-        for fileName in dirList:
-            currNum = int(fileName.split(".jpg")[0])
-            if currNum > larNum:
-                larNum = currNum
-        return larNum
-    except:
-        return 0
+GAIN = 20.0
+WHITE_BAL = [(79.0, 64.0, 107.0)]
+
+BLACK = (0, 70, -33, 76, -89, 59)
+
+## GPIO
+if ('FOR_DEBUGGING' in globals()):
+    fm.register(34,fm.fpioa.UART1_TX)
+    fm.register(35,fm.fpioa.UART1_RX)
+    uart = UART(UART.UART1, 115200, 8, None, 1, timeout=1000, read_buf_len=4096)
+else :
+    tim = Timer(Timer.TIMER0, Timer.CHANNEL0, mode=Timer.MODE_PWM)
+    light = PWM(tim, freq=500000, duty=50, pin=34)
+    light.duty(0)
 
 
-def initialize_camera():
-    while 1:
-        try:
-            sensor.reset() #Reset sensor may failed, let's try some times
-            break
-        except:
-            time.sleep(0.1)
-            continue
+led = ws2812(8,1)
+
+## CONSTANT いじるな！！！
+HIGH = 0
+LOW = 1
+
+COLOR = [(255, 0, 0), (255, 255, 0), (0, 255, 0)]
+LED_OFF = (0, 0, 0)
+LED_DETECT = [(10, 10, 0), (0, 10, 10), (10, 0, 10)]
+
+## GLOBAL
+yolo_counter = 0
+
+def calibration():
+    if not ('CALIBRATION' in globals()):
+        sensor.set_auto_gain(True)
+        sensor.set_auto_whitebal(True)
+
+        while(1):
+            img = sensor.snapshot()
+
+            try :
+                print("GAIN = ", end="")
+                print(sensor.get_gain_db())
+                print("WHITE_BAL = [", end="")
+                print(sensor.get_rgb_gain_db(),end="")
+                print("]")
+            except:
+                print("Point the camera at the white surface.")
+
+def init():
+    sensor.reset()
     sensor.set_pixformat(sensor.RGB565)
-    sensor.set_framesize(sensor.QVGA) #QVGA=320x240
+    sensor.set_framesize(sensor.QVGA)
+    sensor.set_windowing((0, 0, 224, 224))
+
+    if IS_LEFT:
+        sensor.set_hmirror(True)
+        sensor.set_vflip(True)
+
     sensor.set_auto_gain(False, gain_db = GAIN, gain_db_ceiling = GAIN)
     sensor.set_auto_whitebal(False, rgb_gain_db = WHITE_BAL[0])
-    sensor.run(1)
 
+    led.set_led(0, (100,100,100))
+    led.display()
 
-def RGB_LED():
-    a = class_ws2812.set_led(0,(0,BRIGHTNESS,0))
-    a = class_ws2812.display()
-    time.sleep(0.5)
-    a = class_ws2812.set_led(0,(0,0,0))
-    a = class_ws2812.display()
+    sensor.skip_frames(time = 2000)
 
+    led.set_led(0, (0, 0, 0))
+    led.display()
 
-initialize_camera()
+def main():
+    init ()
+    calibration()
 
-currentDirectory = 1
-
-if "sd" not in os.listdir("/"):
-    print("Error: Cannot read SD Card")
-
-try:
-    os.mkdir("/sd/train")
-except Exception as e:
-    pass
-
-try:
-    os.mkdir("/sd/vaild")
-except Exception as e:
-    pass
-
-try:
-    currentImage = max(findMaxIDinDir("/sd/train/" + str(currentDirectory)), findMaxIDinDir("/sd/vaild/" + str(currentDirectory))) + 1
-except:
-    currentImage = 0
-    pass
-
-isButtonPressedA = 0
-isButtonPressedB = 0
-
-try:
     while(True):
-        img = sensor.snapshot()
-        img.binary([BLACK])
-        if but_a.value() == 0 and isButtonPressedA == 0:
-            if currentImage <= 30 or currentImage > 35:
-                try:
-                    if str(currentDirectory) not in os.listdir("/sd/train"):
-                        try:
-                            os.mkdir("/sd/train/" + str(currentDirectory))
-                        except:
-                            pass
-                    photo = img.save("/sd/train/" + str(currentDirectory) + "/" + str(currentImage) + ".jpg", quality=95)
-                    print("ok Class" + str(currentDirectory) + " -> " + str(currentImage) + "/35")
-                    RGB_LED()
-                except:
-                    print("Error: Cannot Write to SD Card")
-                    time.sleep(1)
-            else:
-                try:
-                    if str(currentDirectory) not in os.listdir("/sd/vaild"):
-                        try:
-                            os.mkdir("/sd/vaild/" + str(currentDirectory))
-                        except:
-                            pass
-                    photo = img.save("/sd/vaild/" + str(currentDirectory) + "/" + str(currentImage) + ".jpg", quality=95)
-                    print("ok Class" + str(currentDirectory) + " -> " + str(currentImage) + "/35")
-                    RGB_LED()
-                except:
-                    print("Error: Cannot Write to SD Card")
-                    time.sleep(1)
-            currentImage = currentImage + 1
-            isButtonPressedA = 1
+        #try:
 
-        if but_a.value() == 1:
-            isButtonPressedA = 0
+        led.set_led(0, LED_OFF)
+        img = sensor.snapshot()           # 画像を取得
 
-        if but_b.value() == 0 and isButtonPressedB == 0:
-            currentDirectory = currentDirectory + 1
-            if currentDirectory == 11:
-                currentDirectory = 1
-            currentImage = max(findMaxIDinDir("/sd/train/" + str(currentDirectory)), findMaxIDinDir("/sd/vaild/" + str(currentDirectory))) + 1
-            print("ok Class" + str(currentDirectory) + " -> " + str(currentImage) + "/35")
-            isButtonPressedB = 1
+        victim_exists = False
 
-        if but_b.value() == 1:
-            isButtonPressedB = 0
 
-except KeyboardInterrupt:
-    pass
+        if ('ENABLE_BINARY' in globals()):
+            img.binary([BLACK])
+
+
+if __name__ == "__main__":
+    main()
