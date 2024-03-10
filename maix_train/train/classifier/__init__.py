@@ -119,6 +119,7 @@ class Classifier(Train_Base):
         import tensorflow as tf
 
         # pooling='avg', use around padding instead padding bottom and right for k210
+        # CHECK: 精度に関わる可能性
         base_model = mobilenet.MobileNet0(input_shape=self.input_shape,
                      alpha = 0.75, depth_multiplier = 1, dropout = 0.001, pooling='avg',
                      weights=weights, include_top=False)
