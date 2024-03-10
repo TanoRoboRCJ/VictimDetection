@@ -1,0 +1,22 @@
+version: '3'
+services:
+  python3_native:
+    restart: always
+    container_name: 'python3_native'
+    working_dir: '/root/'
+    tty: true
+    volumes:
+      - ./:/root/maix_train
+    build:
+      context: .
+      dockerfile: Dockerfile_native
+  python3_linux_amd64:
+    restart: always
+    container_name: 'python3_linux_amd64'
+    working_dir: '/root/'
+    tty: true
+    volumes:
+      - ./:/root/maix_train
+    build:
+      context: .
+      dockerfile: Dockerfile_linux_amd64
