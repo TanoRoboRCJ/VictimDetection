@@ -7,4 +7,4 @@ build
 .spec
 .pyc
 tools/ncc/*/
-dataset/
+datasets_img/
