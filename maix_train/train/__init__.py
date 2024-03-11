@@ -185,7 +185,7 @@ class Train():
             if not config.allow_cpu:
                 log.e("no free GPU")
                 raise Exception((TrainFailReason.ERROR_NODE_BUSY, "node no enough GPU or GPU memory and not support CPU train"))
-            log.i("no GPUｆｆ, will use [CPU]")
+            log.i("no GPU, will use [CPU]")
         else:
             log.i("select", gpu)
 
