@@ -19,6 +19,8 @@ import tensorflow as tf
 import os
 import cv2
 
+import shutil
+
 def load_image(path, target_size=(224, 224)):
     img = image.load_img(path, target_size=target_size)
     x = image.img_to_array(img)
@@ -54,6 +56,14 @@ def overlay_heatmap_on_image(image, heatmap):
 image_dir = 'out/sample_images'
 image_files = os.listdir(image_dir)
 
+out_dir = 'out/heatmap/'
+# os.makedirs(out_dir, exist_ok=True)
+# すでにある場合はour_dirを一旦消す
+if os.path.exists(out_dir):
+    shutil.rmtree(out_dir)
+
+os.makedirs(out_dir)
+
 for image_file in image_files:
     image_path = os.path.join(image_dir, image_file)
     img = load_image(image_path)
@@ -71,9 +81,6 @@ for image_file in image_files:
     cam = cv2.applyColorMap(np.uint8(255*cam), cv2.COLORMAP_JET)
 
     img = img * (1.0 - INTENSITY) + cam * INTENSITY
-
-    out_dir = 'out/heatmap/'
-    os.makedirs(out_dir, exist_ok=True)  # ディレクトリが存在しない場合に作成
 
     out_path = os.path.join(out_dir, image_file)
     cv2.imwrite(out_path, img)
