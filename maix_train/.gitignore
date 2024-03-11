@@ -8,3 +8,6 @@ build
 .pyc
 tools/ncc/*/
 datasets_img/
+
+out/datasets
+out/sample_images
