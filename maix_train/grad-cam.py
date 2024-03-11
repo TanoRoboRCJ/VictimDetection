@@ -70,7 +70,7 @@ for image_file in image_files:
     cam = cv2.resize(cam, (img.shape[1], img.shape[0]))
     cam = cv2.applyColorMap(np.uint8(255*cam), cv2.COLORMAP_JET)
 
-    img = cam * INTENSITY + img
+    img = img * (1.0 - INTENSITY) + cam * INTENSITY
 
     out_dir = 'out/heatmap/'
     os.makedirs(out_dir, exist_ok=True)  # ディレクトリが存在しない場合に作成
