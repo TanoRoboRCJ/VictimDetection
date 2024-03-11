@@ -153,7 +153,7 @@ class Train():
         result_zip_name = "{}.zip".format(result_dir_name)
         result_dir = os.path.join(os.path.dirname(self.result_dir), result_dir_name)
         os.rename(self.result_dir, result_dir)
-        root_dir = os.path.join(self.temp_dir, "result_root_dir")
+        root_dir = os.path.join(self.temp_dir, "result")
         os.mkdir(root_dir)
         shutil.move(result_dir, root_dir) # 移动 result 文件夹, 到一个 root_dir下,用以压缩
         result_zip = os.path.join(self.temp_dir, result_zip_name)
