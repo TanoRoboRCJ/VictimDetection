@@ -1,0 +1,27 @@
+2024-03-11 18:25:38,656 - [INFO]:  progress: 0%, start
+2024-03-11 18:25:38,656 - [INFO]:  progress: 1%, start train
+2024-03-11 18:25:38,657 - [INFO]:  no GPU, will use [CPU]
+2024-03-11 18:25:40,579 - [INFO]:  train, labels:['LTR_H', 'LTR_S', 'LTR_U', 'N']
+2024-03-11 18:25:40,580 - [DEBUG]:  train, datasets dir:/root/maix_train/out/datasets/images
+2024-03-11 18:25:41,068 - [INFO]:  train data:3412, valid data:852
+2024-03-11 18:25:41,113 - [INFO]:  train start
+2024-03-11 18:25:41,114 - [INFO]:  progress: 1.0%, train start
+2024-03-11 18:25:41,126 - [INFO]:  epoch 0 start
+2024-03-11 18:26:12,806 - [INFO]:  epoch 0 end: {'loss': 0.26408931612968445, 'accuracy': 0.9295567870140076, 'val_loss': 0.14175499975681305, 'val_accuracy': 0.9694117903709412}
+2024-03-11 18:26:12,806 - [INFO]:  progress: 49.5%, train epoch end
+2024-03-11 18:26:12,811 - [INFO]:  epoch 1 start
+2024-03-11 18:26:42,643 - [INFO]:  epoch 1 end: {'loss': 0.111102394759655, 'accuracy': 0.9756383895874023, 'val_loss': 0.1069142073392868, 'val_accuracy': 0.9717646837234497}
+2024-03-11 18:26:42,644 - [INFO]:  progress: 98.0%, train epoch end
+2024-03-11 18:26:42,645 - [INFO]:  train end
+2024-03-11 18:26:42,645 - [INFO]:  progress: 98.0%, train end
+2024-03-11 18:26:42,646 - [INFO]:  train ok, now generate report
+2024-03-11 18:26:42,646 - [INFO]:  generate report image
+2024-03-11 18:27:13,248 - [INFO]:  generate report image end
+2024-03-11 18:27:13,249 - [INFO]:  now generate kmodel
+2024-03-11 18:27:13,249 - [INFO]:  save model as .h5 file
+2024-03-11 18:27:13,349 - [INFO]:  save model as .tflite file
+2024-03-11 18:27:19,565 - [ERROR]:  convert to kmodel fail
+2024-03-11 18:27:19,565 - [ERROR]:  failed: TrainFailReason.ERROR_INTERNAL, convert kmodel fail: output:
+b''
+error:
+b'rosetta error: failed to open elf at /lib64/ld-linux-x86-64.so.2\n '
