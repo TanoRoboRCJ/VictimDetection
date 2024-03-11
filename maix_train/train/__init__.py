@@ -176,7 +176,9 @@ class Train():
     def classifier_train(self, log):
         # 检测 GPU 可用,选择一个可用的 GPU 使用
         try:
-            gpu = gpu_utils.select_gpu(memory_require = config.classifier_train_gpu_mem_require, tf_gpu_mem_growth=False)
+            # CHECK: GPU
+            # gpu = gpu_utils.select_gpu(memory_require = config.classifier_train_gpu_mem_require, tf_gpu_mem_growth=False)
+            gpu = gpu_utils.select_gpu(memory_require = 0, tf_gpu_mem_growth=False)
         except Exception:
             gpu = None
         if gpu is None:
