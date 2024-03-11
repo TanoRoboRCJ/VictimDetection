@@ -770,7 +770,9 @@ def test_main(datasets_zip, model_path, report_path, log, use_cpu=False):
     if not os.path.exists("out"):
         os.makedirs("out")
     try:
-        gpu = gpu_utils.select_gpu(memory_require = 1*1024*1024*1024, tf_gpu_mem_growth=False)
+        # CHECK: GPU
+        # gpu = gpu_utils.select_gpu(memory_require = 1*1024*1024*1024, tf_gpu_mem_growth=False)
+        gpu = gpu_utils.select_gpu(memory_require = 0, tf_gpu_mem_growth=False)
     except Exception:
         gpu = None
     if gpu is None:
