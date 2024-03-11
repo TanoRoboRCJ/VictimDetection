@@ -109,7 +109,7 @@ class Classifier(Train_Base):
                 
     def train(self, epochs= 100,
                     progress_cb=None,
-                    weights=os.path.join(curr_file_dir, "weights", "mobilenet_7_5_224_tf_no_top.h5"),
+                    weights=os.path.join(curr_file_dir, "weights", "mobilenet_1_0_224_tf_no_top.h5"), #CHECK: weights path
                     batch_size = 5
                     ):
         self.log.i("train, labels:{}".format(self.labels))
@@ -119,10 +119,11 @@ class Classifier(Train_Base):
         import tensorflow as tf
 
         # pooling='avg', use around padding instead padding bottom and right for k210
-        # CHECK: 精度に関わる可能性
+        # CHECK: 精度に関わる可能性 https://github.com/fchollet/deep-learning-models/releases/
         base_model = mobilenet.MobileNet0(input_shape=self.input_shape,
-                     alpha = 0.75, depth_multiplier = 1, dropout = 0.001, pooling='avg',
+                     alpha = 1, depth_multiplier = 1, dropout = 0.001, pooling='avg',
                      weights=weights, include_top=False)
+
         # update top layer
         out = base_model.output
         out = tf.keras.layers.Dropout(0.001, name='dropout')(out)
