@@ -14,23 +14,36 @@ import KPU as kpu
 ## CONFIG 試合前にここを調整
 CALIBRATION = None      ######### 試合時は絶対コメントアウトしない！！！#########
 ENABLE_BINARY = None    ######### 試合時は絶対コメントアウトしない！！！#########
-FOR_DEBUGGING = None
+LED_DISABLED = True
 
-IS_LEFT = True
+IS_LEFT = False
+#IS_LEFT = True
 
 GAIN = 19.0
 WHITE_BAL = [(74.0, 64.0, 124.0)]
+
+RED = (22, 54, 31, 74, -1, 62)
+YELLOW = (47, 96, -44, 11, 13, 75)
+GREEN = (20, 56, -34, -9, -37, 15)
+
 BLACK = (0, 50, -60, 60, -60, 60)
+AREA = 3000
+
+SENSIBILITY = [0.90, 0.90, 0.82]
+
+## CONFIG MOBILENET
+LABELS = ["H", "S", "U", "N"]
+model_addr = "/sd/m.kmodel"
 
 ## GPIO
-if ('FOR_DEBUGGING' in globals()):
+if ('LED_DISABLED' in globals()):
     fm.register(34,fm.fpioa.UART1_TX)
     fm.register(35,fm.fpioa.UART1_RX)
     uart = UART(UART.UART1, 115200, 8, None, 1, timeout=1000, read_buf_len=4096)
 else :
     tim = Timer(Timer.TIMER0, Timer.CHANNEL0, mode=Timer.MODE_PWM)
     light = PWM(tim, freq=500000, duty=50, pin=34)
-    light.duty(0)
+    light.duty(30)
 
 
 led = ws2812(8,1)
@@ -43,8 +56,10 @@ COLOR = [(255, 0, 0), (255, 255, 0), (0, 255, 0)]
 LED_OFF = (0, 0, 0)
 LED_DETECT = [(10, 10, 0), (0, 10, 10), (10, 0, 10)]
 
+LETTER = ['R', 'Y', 'G']
+
 ## GLOBAL
-yolo_counter = 0
+mobilenet_counter = 0
 
 def calibration():
     if not ('CALIBRATION' in globals()):
@@ -88,6 +103,8 @@ def main():
     init ()
     calibration()
 
+    task = kpu.load(model_addr)
+
     while(True):
         #try:
 
@@ -96,9 +113,78 @@ def main():
 
         victim_exists = False
 
+        ######### 色認識 #########
+        for i in range(3):
+            threshold = [RED, YELLOW, GREEN]
+            try:
+                blobs = img.find_blobs([threshold[i]])
+            except:
+                pass
 
+            if blobs:
+                for b in blobs:
+                    if (b[2] * b[3] >= AREA):
+                        victim_exists = True
+
+                        img.draw_rectangle(b[0:4], color = COLOR[i], thickness=3)
+                        img.draw_cross(b[5], b[6])
+
+                        if ('LED_DISABLED' in globals()):
+                            uart.write(LETTER[i])
+                        print(LETTER[i])
+
+                        led.set_led(0, (5, 5, 5))
+
+        if victim_exists:
+            led.display()
+            continue
+
+        ######### 文字認識 #########
         if ('ENABLE_BINARY' in globals()):
             img.binary([BLACK])
+
+        img.pix_to_ai()
+        fmap = kpu.forward(task, img)
+
+        plist = fmap[:]
+        pmax = max(plist)
+        max_index = plist.index(pmax)
+
+        global mobilenet_counter
+        mobilenet_exists = False
+
+        if pmax >=0.5 and pmax <=1 and not LABELS[max_index] == "N":
+            max_index = plist.index(pmax)
+            mobilenet_exists = True
+            print("DETECT:" + LABELS[max_index])
+
+        if mobilenet_exists == True:
+            mobilenet_counter += 1
+        else :
+            mobilenet_counter = 0
+
+        if mobilenet_counter >= 2:
+            victim_exists = True
+
+            if ('LED_DISABLED' in globals()):
+                uart.write(LABELS[max_index])
+
+            print(pmax)
+            print(LABELS[max_index])
+
+            led.set_led(0, LED_DETECT[max_index])
+
+        #########
+
+        led.display()
+
+        if not victim_exists:
+            if ('LED_DISABLED' in globals()):
+                uart.write('N')
+            print('No Victim Detected')
+
+        #except:
+            #pass
 
 
 if __name__ == "__main__":
