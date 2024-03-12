@@ -1,27 +1,172 @@
-2024-03-11 18:25:38,656 - [INFO]:  progress: 0%, start
-2024-03-11 18:25:38,656 - [INFO]:  progress: 1%, start train
-2024-03-11 18:25:38,657 - [INFO]:  no GPU, will use [CPU]
-2024-03-11 18:25:40,579 - [INFO]:  train, labels:['LTR_H', 'LTR_S', 'LTR_U', 'N']
-2024-03-11 18:25:40,580 - [DEBUG]:  train, datasets dir:/root/maix_train/out/datasets/images
-2024-03-11 18:25:41,068 - [INFO]:  train data:3412, valid data:852
-2024-03-11 18:25:41,113 - [INFO]:  train start
-2024-03-11 18:25:41,114 - [INFO]:  progress: 1.0%, train start
-2024-03-11 18:25:41,126 - [INFO]:  epoch 0 start
-2024-03-11 18:26:12,806 - [INFO]:  epoch 0 end: {'loss': 0.26408931612968445, 'accuracy': 0.9295567870140076, 'val_loss': 0.14175499975681305, 'val_accuracy': 0.9694117903709412}
-2024-03-11 18:26:12,806 - [INFO]:  progress: 49.5%, train epoch end
-2024-03-11 18:26:12,811 - [INFO]:  epoch 1 start
-2024-03-11 18:26:42,643 - [INFO]:  epoch 1 end: {'loss': 0.111102394759655, 'accuracy': 0.9756383895874023, 'val_loss': 0.1069142073392868, 'val_accuracy': 0.9717646837234497}
-2024-03-11 18:26:42,644 - [INFO]:  progress: 98.0%, train epoch end
-2024-03-11 18:26:42,645 - [INFO]:  train end
-2024-03-11 18:26:42,645 - [INFO]:  progress: 98.0%, train end
-2024-03-11 18:26:42,646 - [INFO]:  train ok, now generate report
-2024-03-11 18:26:42,646 - [INFO]:  generate report image
-2024-03-11 18:27:13,248 - [INFO]:  generate report image end
-2024-03-11 18:27:13,249 - [INFO]:  now generate kmodel
-2024-03-11 18:27:13,249 - [INFO]:  save model as .h5 file
-2024-03-11 18:27:13,349 - [INFO]:  save model as .tflite file
-2024-03-11 18:27:19,565 - [ERROR]:  convert to kmodel fail
-2024-03-11 18:27:19,565 - [ERROR]:  failed: TrainFailReason.ERROR_INTERNAL, convert kmodel fail: output:
-b''
-error:
-b'rosetta error: failed to open elf at /lib64/ld-linux-x86-64.so.2\n '
+2024-03-12 06:18:29,759 - [INFO]:  progress: 0%, start
+2024-03-12 06:18:29,759 - [INFO]:  progress: 1%, start train
+2024-03-12 06:18:29,786 - [INFO]:  select PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')
+2024-03-12 06:20:11,533 - [INFO]:  train, labels:['LTR_H', 'LTR_S', 'LTR_U', 'N']
+2024-03-12 06:20:11,533 - [DEBUG]:  train, datasets dir:/root/maix_train/out/datasets/images
+2024-03-12 06:20:14,875 - [INFO]:  train data:17764, valid data:4440
+2024-03-12 06:20:15,119 - [INFO]:  train start
+2024-03-12 06:20:15,119 - [INFO]:  progress: 1.0%, train start
+2024-03-12 06:20:15,176 - [INFO]:  epoch 0 start
+2024-03-12 06:24:52,242 - [INFO]:  epoch 0 end: {'loss': 0.22257830202579498, 'accuracy': 0.9457403421401978, 'val_loss': 0.13651883602142334, 'val_accuracy': 0.963447630405426}
+2024-03-12 06:24:52,243 - [INFO]:  progress: 2.94%, train epoch end
+2024-03-12 06:24:52,258 - [INFO]:  epoch 1 start
+2024-03-12 06:29:11,350 - [INFO]:  epoch 1 end: {'loss': 0.1150272861123085, 'accuracy': 0.9682217836380005, 'val_loss': 0.1149185374379158, 'val_accuracy': 0.9663808941841125}
+2024-03-12 06:29:11,351 - [INFO]:  progress: 4.88%, train epoch end
+2024-03-12 06:29:11,363 - [INFO]:  epoch 2 start
+2024-03-12 06:33:45,256 - [INFO]:  epoch 2 end: {'loss': 0.09404391050338745, 'accuracy': 0.9742506146430969, 'val_loss': 0.10223115980625153, 'val_accuracy': 0.9681859016418457}
+2024-03-12 06:33:45,257 - [INFO]:  progress: 6.82%, train epoch end
+2024-03-12 06:33:45,271 - [INFO]:  epoch 3 start
+2024-03-12 06:38:25,944 - [INFO]:  epoch 3 end: {'loss': 0.08773377537727356, 'accuracy': 0.9743633270263672, 'val_loss': 0.10442357510328293, 'val_accuracy': 0.9684115648269653}
+2024-03-12 06:38:25,944 - [INFO]:  progress: 8.76%, train epoch end
+2024-03-12 06:38:25,958 - [INFO]:  epoch 4 start
+2024-03-12 06:42:39,619 - [INFO]:  epoch 4 end: {'loss': 0.08602618426084518, 'accuracy': 0.9740815758705139, 'val_loss': 0.09372984617948532, 'val_accuracy': 0.9711191058158875}
+2024-03-12 06:42:39,620 - [INFO]:  progress: 10.7%, train epoch end
+2024-03-12 06:42:39,633 - [INFO]:  epoch 5 start
+2024-03-12 06:46:58,171 - [INFO]:  epoch 5 end: {'loss': 0.08234613388776779, 'accuracy': 0.974757730960846, 'val_loss': 0.0933673158288002, 'val_accuracy': 0.9713447690010071}
+2024-03-12 06:46:58,172 - [INFO]:  progress: 12.64%, train epoch end
+2024-03-12 06:46:58,191 - [INFO]:  epoch 6 start
+2024-03-12 06:51:12,043 - [INFO]:  epoch 6 end: {'loss': 0.07483923435211182, 'accuracy': 0.9772931933403015, 'val_loss': 0.09259536117315292, 'val_accuracy': 0.9699909687042236}
+2024-03-12 06:51:12,043 - [INFO]:  progress: 14.580000000000002%, train epoch end
+2024-03-12 06:51:12,058 - [INFO]:  epoch 7 start
+2024-03-12 06:55:22,560 - [INFO]:  epoch 7 end: {'loss': 0.07180681079626083, 'accuracy': 0.978420078754425, 'val_loss': 0.092835932970047, 'val_accuracy': 0.9706678986549377}
+2024-03-12 06:55:22,561 - [INFO]:  progress: 16.52%, train epoch end
+2024-03-12 06:55:22,576 - [INFO]:  epoch 8 start
+2024-03-12 06:59:42,306 - [INFO]:  epoch 8 end: {'loss': 0.07184115052223206, 'accuracy': 0.9778566360473633, 'val_loss': 0.09093603491783142, 'val_accuracy': 0.9693140983581543}
+2024-03-12 06:59:42,307 - [INFO]:  progress: 18.46%, train epoch end
+2024-03-12 06:59:42,325 - [INFO]:  epoch 9 start
+2024-03-12 07:03:55,670 - [INFO]:  epoch 9 end: {'loss': 0.071563720703125, 'accuracy': 0.9788708686828613, 'val_loss': 0.07605084031820297, 'val_accuracy': 0.9767599105834961}
+2024-03-12 07:03:55,670 - [INFO]:  progress: 20.4%, train epoch end
+2024-03-12 07:03:55,687 - [INFO]:  epoch 10 start
+2024-03-12 07:08:09,048 - [INFO]:  epoch 10 end: {'loss': 0.0666760802268982, 'accuracy': 0.9789835214614868, 'val_loss': 0.07472918927669525, 'val_accuracy': 0.9760830402374268}
+2024-03-12 07:08:09,049 - [INFO]:  progress: 22.34%, train epoch end
+2024-03-12 07:08:09,062 - [INFO]:  epoch 11 start
+2024-03-12 07:12:31,181 - [INFO]:  epoch 11 end: {'loss': 0.06695330142974854, 'accuracy': 0.9797160029411316, 'val_loss': 0.07784368097782135, 'val_accuracy': 0.9765343070030212}
+2024-03-12 07:12:31,182 - [INFO]:  progress: 24.28%, train epoch end
+2024-03-12 07:12:31,199 - [INFO]:  epoch 12 start
+2024-03-12 07:16:43,817 - [INFO]:  epoch 12 end: {'loss': 0.06145181134343147, 'accuracy': 0.9808428883552551, 'val_loss': 0.08587822318077087, 'val_accuracy': 0.972247302532196}
+2024-03-12 07:16:43,818 - [INFO]:  progress: 26.22%, train epoch end
+2024-03-12 07:16:43,842 - [INFO]:  epoch 13 start
+2024-03-12 07:20:58,906 - [INFO]:  epoch 13 end: {'loss': 0.062295299023389816, 'accuracy': 0.9810683131217957, 'val_loss': 0.07826647162437439, 'val_accuracy': 0.9729241728782654}
+2024-03-12 07:20:58,906 - [INFO]:  progress: 28.160000000000004%, train epoch end
+2024-03-12 07:20:58,927 - [INFO]:  epoch 14 start
+2024-03-12 07:25:10,409 - [INFO]:  epoch 14 end: {'loss': 0.06440006196498871, 'accuracy': 0.9798287153244019, 'val_loss': 0.06880216300487518, 'val_accuracy': 0.9774368405342102}
+2024-03-12 07:25:10,410 - [INFO]:  progress: 30.099999999999998%, train epoch end
+2024-03-12 07:25:10,426 - [INFO]:  epoch 15 start
+2024-03-12 07:29:23,728 - [INFO]:  epoch 15 end: {'loss': 0.0662371888756752, 'accuracy': 0.9795469641685486, 'val_loss': 0.07481826096773148, 'val_accuracy': 0.9769855737686157}
+2024-03-12 07:29:23,729 - [INFO]:  progress: 32.04%, train epoch end
+2024-03-12 07:29:23,745 - [INFO]:  epoch 16 start
+2024-03-12 07:33:37,110 - [INFO]:  epoch 16 end: {'loss': 0.05841737985610962, 'accuracy': 0.982589602470398, 'val_loss': 0.06612159311771393, 'val_accuracy': 0.9787906408309937}
+2024-03-12 07:33:37,110 - [INFO]:  progress: 33.98%, train epoch end
+2024-03-12 07:33:37,129 - [INFO]:  epoch 17 start
+2024-03-12 07:37:49,994 - [INFO]:  epoch 17 end: {'loss': 0.06109965965151787, 'accuracy': 0.9812373518943787, 'val_loss': 0.06974952667951584, 'val_accuracy': 0.9774368405342102}
+2024-03-12 07:37:49,994 - [INFO]:  progress: 35.92%, train epoch end
+2024-03-12 07:37:50,013 - [INFO]:  epoch 18 start
+2024-03-12 07:42:02,806 - [INFO]:  epoch 18 end: {'loss': 0.06094151362776756, 'accuracy': 0.9803921580314636, 'val_loss': 0.07380415499210358, 'val_accuracy': 0.9745036363601685}
+2024-03-12 07:42:02,807 - [INFO]:  progress: 37.86%, train epoch end
+2024-03-12 07:42:02,829 - [INFO]:  epoch 19 start
+2024-03-12 07:46:14,161 - [INFO]:  epoch 19 end: {'loss': 0.059755295515060425, 'accuracy': 0.9817444086074829, 'val_loss': 0.06705854833126068, 'val_accuracy': 0.9767599105834961}
+2024-03-12 07:46:14,162 - [INFO]:  progress: 39.8%, train epoch end
+2024-03-12 07:46:14,178 - [INFO]:  epoch 20 start
+2024-03-12 07:50:24,971 - [INFO]:  epoch 20 end: {'loss': 0.05966634303331375, 'accuracy': 0.9807302355766296, 'val_loss': 0.07320421189069748, 'val_accuracy': 0.9738267064094543}
+2024-03-12 07:50:24,971 - [INFO]:  progress: 41.74%, train epoch end
+2024-03-12 07:50:24,988 - [INFO]:  epoch 21 start
+2024-03-12 07:54:37,048 - [INFO]:  epoch 21 end: {'loss': 0.06009587273001671, 'accuracy': 0.9811809659004211, 'val_loss': 0.07037702202796936, 'val_accuracy': 0.9763086438179016}
+2024-03-12 07:54:37,049 - [INFO]:  progress: 43.68%, train epoch end
+2024-03-12 07:54:37,065 - [INFO]:  epoch 22 start
+2024-03-12 07:58:50,674 - [INFO]:  epoch 22 end: {'loss': 0.06134462356567383, 'accuracy': 0.9799414277076721, 'val_loss': 0.06834276765584946, 'val_accuracy': 0.9805956482887268}
+2024-03-12 07:58:50,675 - [INFO]:  progress: 45.62%, train epoch end
+2024-03-12 07:58:50,694 - [INFO]:  epoch 23 start
+2024-03-12 08:03:02,470 - [INFO]:  epoch 23 end: {'loss': 0.057894691824913025, 'accuracy': 0.9814063310623169, 'val_loss': 0.07373175024986267, 'val_accuracy': 0.9758573770523071}
+2024-03-12 08:03:02,471 - [INFO]:  progress: 47.56%, train epoch end
+2024-03-12 08:03:02,489 - [INFO]:  epoch 24 start
+2024-03-12 08:07:15,560 - [INFO]:  epoch 24 end: {'loss': 0.05839166045188904, 'accuracy': 0.9811246395111084, 'val_loss': 0.06436814367771149, 'val_accuracy': 0.9783393740653992}
+2024-03-12 08:07:15,561 - [INFO]:  progress: 49.5%, train epoch end
+2024-03-12 08:07:15,580 - [INFO]:  epoch 25 start
+2024-03-12 08:11:26,656 - [INFO]:  epoch 25 end: {'loss': 0.05904050171375275, 'accuracy': 0.9814627170562744, 'val_loss': 0.06255172938108444, 'val_accuracy': 0.980370044708252}
+2024-03-12 08:11:26,657 - [INFO]:  progress: 51.44%, train epoch end
+2024-03-12 08:11:26,674 - [INFO]:  epoch 26 start
+2024-03-12 08:15:38,207 - [INFO]:  epoch 26 end: {'loss': 0.0583258680999279, 'accuracy': 0.9819134473800659, 'val_loss': 0.0629768893122673, 'val_accuracy': 0.978564977645874}
+2024-03-12 08:15:38,208 - [INFO]:  progress: 53.379999999999995%, train epoch end
+2024-03-12 08:15:38,228 - [INFO]:  epoch 27 start
+2024-03-12 08:19:52,068 - [INFO]:  epoch 27 end: {'loss': 0.053423523902893066, 'accuracy': 0.983829140663147, 'val_loss': 0.06394118070602417, 'val_accuracy': 0.9787906408309937}
+2024-03-12 08:19:52,069 - [INFO]:  progress: 55.32000000000001%, train epoch end
+2024-03-12 08:19:52,083 - [INFO]:  epoch 28 start
+2024-03-12 08:24:04,572 - [INFO]:  epoch 28 end: {'loss': 0.05849144607782364, 'accuracy': 0.9817444086074829, 'val_loss': 0.06312204152345657, 'val_accuracy': 0.9799187779426575}
+2024-03-12 08:24:04,573 - [INFO]:  progress: 57.25999999999999%, train epoch end
+2024-03-12 08:24:04,597 - [INFO]:  epoch 29 start
+2024-03-12 08:28:17,621 - [INFO]:  epoch 29 end: {'loss': 0.05401083081960678, 'accuracy': 0.9824205636978149, 'val_loss': 0.06973046064376831, 'val_accuracy': 0.9751805067062378}
+2024-03-12 08:28:17,621 - [INFO]:  progress: 59.199999999999996%, train epoch end
+2024-03-12 08:28:17,637 - [INFO]:  epoch 30 start
+2024-03-12 08:32:30,213 - [INFO]:  epoch 30 end: {'loss': 0.05538284406065941, 'accuracy': 0.9820824861526489, 'val_loss': 0.07158364355564117, 'val_accuracy': 0.9772111773490906}
+2024-03-12 08:32:30,213 - [INFO]:  progress: 61.14%, train epoch end
+2024-03-12 08:32:30,232 - [INFO]:  epoch 31 start
+2024-03-12 08:36:43,708 - [INFO]:  epoch 31 end: {'loss': 0.05578235164284706, 'accuracy': 0.9827022552490234, 'val_loss': 0.06280720978975296, 'val_accuracy': 0.979467511177063}
+2024-03-12 08:36:43,709 - [INFO]:  progress: 63.08%, train epoch end
+2024-03-12 08:36:43,727 - [INFO]:  epoch 32 start
+2024-03-12 08:40:54,854 - [INFO]:  epoch 32 end: {'loss': 0.05618661269545555, 'accuracy': 0.9817444086074829, 'val_loss': 0.07073187828063965, 'val_accuracy': 0.9774368405342102}
+2024-03-12 08:40:54,855 - [INFO]:  progress: 65.02%, train epoch end
+2024-03-12 08:40:54,871 - [INFO]:  epoch 33 start
+2024-03-12 08:45:09,374 - [INFO]:  epoch 33 end: {'loss': 0.057089630514383316, 'accuracy': 0.9813500046730042, 'val_loss': 0.06243085488677025, 'val_accuracy': 0.9799187779426575}
+2024-03-12 08:45:09,375 - [INFO]:  progress: 66.96%, train epoch end
+2024-03-12 08:45:09,391 - [INFO]:  epoch 34 start
+2024-03-12 08:49:22,438 - [INFO]:  epoch 34 end: {'loss': 0.05455534905195236, 'accuracy': 0.9821951985359192, 'val_loss': 0.05908333137631416, 'val_accuracy': 0.9819494485855103}
+2024-03-12 08:49:22,439 - [INFO]:  progress: 68.89999999999999%, train epoch end
+2024-03-12 08:49:22,454 - [INFO]:  epoch 35 start
+2024-03-12 08:53:34,677 - [INFO]:  epoch 35 end: {'loss': 0.0519845224916935, 'accuracy': 0.9836037755012512, 'val_loss': 0.059482015669345856, 'val_accuracy': 0.9812725782394409}
+2024-03-12 08:53:34,678 - [INFO]:  progress: 70.84%, train epoch end
+2024-03-12 08:53:34,692 - [INFO]:  epoch 36 start
+2024-03-12 08:57:46,607 - [INFO]:  epoch 36 end: {'loss': 0.05547976493835449, 'accuracy': 0.9812373518943787, 'val_loss': 0.06253217905759811, 'val_accuracy': 0.9787906408309937}
+2024-03-12 08:57:46,607 - [INFO]:  progress: 72.78%, train epoch end
+2024-03-12 08:57:46,636 - [INFO]:  epoch 37 start
+2024-03-12 09:01:57,814 - [INFO]:  epoch 37 end: {'loss': 0.054170962423086166, 'accuracy': 0.9828149676322937, 'val_loss': 0.06296772509813309, 'val_accuracy': 0.9787906408309937}
+2024-03-12 09:01:57,815 - [INFO]:  progress: 74.72%, train epoch end
+2024-03-12 09:01:57,837 - [INFO]:  epoch 38 start
+2024-03-12 09:06:11,031 - [INFO]:  epoch 38 end: {'loss': 0.05104541406035423, 'accuracy': 0.9851250648498535, 'val_loss': 0.0664287656545639, 'val_accuracy': 0.9772111773490906}
+2024-03-12 09:06:11,032 - [INFO]:  progress: 76.66%, train epoch end
+2024-03-12 09:06:11,047 - [INFO]:  epoch 39 start
+2024-03-12 09:10:24,748 - [INFO]:  epoch 39 end: {'loss': 0.05295819416642189, 'accuracy': 0.9836037755012512, 'val_loss': 0.05907825008034706, 'val_accuracy': 0.9799187779426575}
+2024-03-12 09:10:24,754 - [INFO]:  progress: 78.6%, train epoch end
+2024-03-12 09:10:24,774 - [INFO]:  epoch 40 start
+2024-03-12 09:14:40,852 - [INFO]:  epoch 40 end: {'loss': 0.05354228615760803, 'accuracy': 0.9824205636978149, 'val_loss': 0.0597880594432354, 'val_accuracy': 0.9819494485855103}
+2024-03-12 09:14:40,853 - [INFO]:  progress: 80.53999999999999%, train epoch end
+2024-03-12 09:14:40,871 - [INFO]:  epoch 41 start
+2024-03-12 09:18:56,814 - [INFO]:  epoch 41 end: {'loss': 0.05018800124526024, 'accuracy': 0.984843373298645, 'val_loss': 0.06284978985786438, 'val_accuracy': 0.9790162444114685}
+2024-03-12 09:18:56,815 - [INFO]:  progress: 82.48%, train epoch end
+2024-03-12 09:18:56,835 - [INFO]:  epoch 42 start
+2024-03-12 09:23:13,191 - [INFO]:  epoch 42 end: {'loss': 0.053557779639959335, 'accuracy': 0.9828712940216064, 'val_loss': 0.06333316117525101, 'val_accuracy': 0.979467511177063}
+2024-03-12 09:23:13,191 - [INFO]:  progress: 84.42%, train epoch end
+2024-03-12 09:23:13,206 - [INFO]:  epoch 43 start
+2024-03-12 09:27:27,731 - [INFO]:  epoch 43 end: {'loss': 0.051391325891017914, 'accuracy': 0.9828149676322937, 'val_loss': 0.06632883101701736, 'val_accuracy': 0.978564977645874}
+2024-03-12 09:27:27,731 - [INFO]:  progress: 86.36%, train epoch end
+2024-03-12 09:27:27,747 - [INFO]:  epoch 44 start
+2024-03-12 09:31:39,646 - [INFO]:  epoch 44 end: {'loss': 0.053608521819114685, 'accuracy': 0.982927680015564, 'val_loss': 0.06013590842485428, 'val_accuracy': 0.9812725782394409}
+2024-03-12 09:31:39,647 - [INFO]:  progress: 88.3%, train epoch end
+2024-03-12 09:31:39,675 - [INFO]:  epoch 45 start
+2024-03-12 09:35:55,189 - [INFO]:  epoch 45 end: {'loss': 0.05348961427807808, 'accuracy': 0.9824768900871277, 'val_loss': 0.06450756639242172, 'val_accuracy': 0.9783393740653992}
+2024-03-12 09:35:55,190 - [INFO]:  progress: 90.24%, train epoch end
+2024-03-12 09:35:55,219 - [INFO]:  epoch 46 start
+2024-03-12 09:40:10,655 - [INFO]:  epoch 46 end: {'loss': 0.049843624234199524, 'accuracy': 0.98399817943573, 'val_loss': 0.060919247567653656, 'val_accuracy': 0.9805956482887268}
+2024-03-12 09:40:10,656 - [INFO]:  progress: 92.17999999999999%, train epoch end
+2024-03-12 09:40:10,677 - [INFO]:  epoch 47 start
+2024-03-12 09:44:30,895 - [INFO]:  epoch 47 end: {'loss': 0.05029462277889252, 'accuracy': 0.9844489693641663, 'val_loss': 0.05795074626803398, 'val_accuracy': 0.9799187779426575}
+2024-03-12 09:44:30,896 - [INFO]:  progress: 94.12%, train epoch end
+2024-03-12 09:44:30,915 - [INFO]:  epoch 48 start
+2024-03-12 09:48:47,995 - [INFO]:  epoch 48 end: {'loss': 0.05410746484994888, 'accuracy': 0.9830403327941895, 'val_loss': 0.057468995451927185, 'val_accuracy': 0.9819494485855103}
+2024-03-12 09:48:47,996 - [INFO]:  progress: 96.06%, train epoch end
+2024-03-12 09:48:48,014 - [INFO]:  epoch 49 start
+2024-03-12 09:53:05,228 - [INFO]:  epoch 49 end: {'loss': 0.05267336592078209, 'accuracy': 0.9837164878845215, 'val_loss': 0.06279551237821579, 'val_accuracy': 0.9765343070030212}
+2024-03-12 09:53:05,228 - [INFO]:  progress: 98.0%, train epoch end
+2024-03-12 09:53:05,232 - [INFO]:  train end
+2024-03-12 09:53:05,232 - [INFO]:  progress: 98.0%, train end
+2024-03-12 09:53:05,241 - [INFO]:  train ok, now generate report
+2024-03-12 09:53:05,243 - [INFO]:  generate report image
+2024-03-12 09:54:39,014 - [INFO]:  generate report image end
+2024-03-12 09:54:39,014 - [INFO]:  now generate kmodel
+2024-03-12 09:54:39,014 - [INFO]:  save model as .h5 file
+2024-03-12 09:54:39,351 - [INFO]:  save model as .tflite file
+2024-03-12 09:55:04,415 - [INFO]:  copy template files
+2024-03-12 09:55:04,457 - [INFO]:  pack result to zip file
+2024-03-12 09:55:04,614 - [INFO]:  progress: 99%, pack ok
+2024-03-12 09:55:04,614 - [INFO]:  progress: 100%, task complete
+2024-03-12 09:55:04,615 - [INFO]:  OK, task complete, result uri: /root/maix_train/out/maixhub_classifier_result_2024_03_12__09_55.zip
+2024-03-12 09:55:04,616 - [INFO]:  success: out_dir: /root/maix_train/out/maixhub_classifier_result_2024_03_12__09_55.zip
