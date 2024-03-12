@@ -67,7 +67,7 @@ def main():
         pmax = max(plist)
         print("pmax:" + str(pmax) )
 
-        if pmax >=0.7 and pmax <=1:
+        if pmax >=0 and pmax <=1:
             max_index = plist.index(pmax)
             print("DETECT:" + labels[max_index].strip())
         else:
