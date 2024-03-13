@@ -17,23 +17,23 @@ ENABLE_BINARY = None    ######### 試合時は絶対コメントアウトしな�
 LED_DISABLED = True
 
 IS_LEFT = False
-#IS_LEFT = True
+IS_LEFT = True
 
 GAIN = 19.0
-WHITE_BAL = [(74.0, 64.0, 124.0)]
+WHITE_BAL = [(71.0, 64.0, 113.0)]
 
 RED = (22, 54, 31, 74, -1, 62)
 YELLOW = (47, 96, -44, 11, 13, 75)
-GREEN = (20, 56, -34, -9, -37, 15)
+GREEN = (49, 75, -44, -10, -43, -9)
 
-BLACK = (0, 50, -60, 60, -60, 60)
+BLACK = (0, 56, -87, 45, -86, 46)
 AREA = 3000
 
 SENSIBILITY = [0.90, 0.90, 0.82]
 
 ## CONFIG MOBILENET
 LABELS = ["H", "S", "U", "N"]
-model_addr = "/sd/m.kmodel"
+model_addr = "/sd/3.kmodel"
 
 ## GPIO
 if ('LED_DISABLED' in globals()):
