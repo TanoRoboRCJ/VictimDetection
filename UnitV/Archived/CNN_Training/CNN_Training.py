@@ -13,14 +13,14 @@ import KPU as kpu
 
 ## CONFIG 試合前にここを調整
 CALIBRATION = None      ######### 試合時は絶対コメントアウトしない！！！#########
-ENABLE_BINARY = None    ######### 試合時は絶対コメントアウトしない！！！#########
+#ENABLE_BINARY = None    ######### 試合時は絶対コメントアウトしない！！！#########
 FOR_DEBUGGING = None
 
 IS_LEFT = True
 
-GAIN = 19.0
-WHITE_BAL = [(74.0, 64.0, 124.0)]
-BLACK = (0, 50, -60, 60, -60, 60)
+GAIN = 15.0
+WHITE_BAL = [(95.0, 64.0, 85.0)]
+BLACK = (12, 50, -81, 63, -80, 62)
 
 ## GPIO
 if ('FOR_DEBUGGING' in globals()):
