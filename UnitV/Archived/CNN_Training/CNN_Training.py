@@ -18,9 +18,9 @@ FOR_DEBUGGING = None
 
 IS_LEFT = True
 
-GAIN = 15.0
-WHITE_BAL = [(95.0, 64.0, 85.0)]
-BLACK = (12, 50, -81, 63, -80, 62)
+GAIN = 10.0
+WHITE_BAL = [(79.0, 64.0, 114.0)]
+BLACK = (16, 52, -128, 127, -128, 127)
 
 ## GPIO
 if ('FOR_DEBUGGING' in globals()):
