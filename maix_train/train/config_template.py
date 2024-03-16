@@ -18,8 +18,8 @@ detector_train_gpu_mem_require = 2 * 1024 * 1024 * 1024
 classifier_result_file_name_prefix = "maixhub_classifier_result"
 detector_result_file_name_prefix = "maixhub_detector_result"
 
-classifier_train_one_class_max_img_num = 5000
-detector_train_one_class_max_img_num = 5000
+classifier_train_one_class_max_img_num = 20000
+detector_train_one_class_max_img_num = 20000
 
 import os
 
