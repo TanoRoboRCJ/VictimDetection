@@ -11,40 +11,33 @@ from board import board_info
 
 import KPU as kpu
 
-## CONFIG 試合前にここを調整
+# CONFIG 試合前にここを調整
 CALIBRATION = None      ######### 試合時は絶対コメントアウトしない！！！#########
 ENABLE_BINARY = None    ######### 試合時は絶対コメントアウトしない！！！#########
-LED_DISABLED = True
 
 IS_LEFT = False
 IS_LEFT = True
 
-GAIN = 19.0
-WHITE_BAL = [(71.0, 64.0, 113.0)]
+GAIN = 22.0
+WHITE_BAL = [(69.0, 64.0, 117.0)]
 
 RED = (22, 54, 31, 74, -1, 62)
-YELLOW = (47, 96, -44, 11, 13, 75)
+YELLOW = (57, 90, -26, 16, 31, 79)
 GREEN = (49, 75, -44, -10, -43, -9)
 
-BLACK = (0, 56, -87, 45, -86, 46)
-AREA = 3000
+BLACK = (0, 40, -87, 85, -86, 86)
+AREA = 2500
 
 SENSIBILITY = [0.90, 0.90, 0.82]
 
 ## CONFIG MOBILENET
 LABELS = ["H", "S", "U", "N"]
-model_addr = "/sd/3.kmodel"
+model_addr = "/sd/m.kmodel"
 
 ## GPIO
-if ('LED_DISABLED' in globals()):
-    fm.register(34,fm.fpioa.UART1_TX)
-    fm.register(35,fm.fpioa.UART1_RX)
-    uart = UART(UART.UART1, 115200, 8, None, 1, timeout=1000, read_buf_len=4096)
-else :
-    tim = Timer(Timer.TIMER0, Timer.CHANNEL0, mode=Timer.MODE_PWM)
-    light = PWM(tim, freq=500000, duty=50, pin=34)
-    light.duty(30)
-
+fm.register(34,fm.fpioa.UART1_TX)
+fm.register(35,fm.fpioa.UART1_RX)
+uart = UART(UART.UART1, 115200, 8, None, 1, timeout=1000, read_buf_len=4096)
 
 led = ws2812(8,1)
 
@@ -79,7 +72,7 @@ def calibration():
                 print("Point the camera at the white surface.")
 
 def init():
-    sensor.reset()
+    sensor.reset(dual_buff=True)
     sensor.set_pixformat(sensor.RGB565)
     sensor.set_framesize(sensor.QVGA)
     sensor.set_windowing((0, 0, 224, 224))
@@ -129,8 +122,7 @@ def main():
                         img.draw_rectangle(b[0:4], color = COLOR[i], thickness=3)
                         img.draw_cross(b[5], b[6])
 
-                        if ('LED_DISABLED' in globals()):
-                            uart.write(LETTER[i])
+                        uart.write(LETTER[i])
                         print(LETTER[i])
 
                         led.set_led(0, (5, 5, 5))
@@ -140,48 +132,48 @@ def main():
             continue
 
         ######### 文字認識 #########
-        if ('ENABLE_BINARY' in globals()):
-            img.binary([BLACK])
+        #if ('ENABLE_BINARY' in globals()):
+        img.binary([BLACK])
+        #img.pix_to_ai()
+        #fmap = kpu.forward(task, img)
 
-        img.pix_to_ai()
-        fmap = kpu.forward(task, img)
+        #plist = fmap[:]
+        #pmax = max(plist)
+        #max_index = plist.index(pmax)
 
-        plist = fmap[:]
-        pmax = max(plist)
-        max_index = plist.index(pmax)
+        #global mobilenet_counter
+        #mobilenet_exists = False
 
-        global mobilenet_counter
-        mobilenet_exists = False
+        #if pmax >=0.5 and pmax <=1 and not LABELS[max_index] == "N":
+            #max_index = plist.index(pmax)
+            #mobilenet_exists = True
+            #print("DETECT:" + LABELS[max_index])
 
-        if pmax >=0.5 and pmax <=1 and not LABELS[max_index] == "N":
-            max_index = plist.index(pmax)
-            mobilenet_exists = True
-            print("DETECT:" + LABELS[max_index])
+        #if mobilenet_exists == True:
+            #mobilenet_counter += 1
+        #else :
+            #mobilenet_counter = 0
 
-        if mobilenet_exists == True:
-            mobilenet_counter += 1
-        else :
-            mobilenet_counter = 0
+        #if mobilenet_counter >= 1:
+            #victim_exists = True
 
-        if mobilenet_counter >= 2:
-            victim_exists = True
+            #uart.write(LABELS[max_index])
 
-            if ('LED_DISABLED' in globals()):
-                uart.write(LABELS[max_index])
+            #print(pmax)
+            #print(LABELS[max_index])
 
-            print(pmax)
-            print(LABELS[max_index])
+            #led.set_led(0, LED_DETECT[max_index])
 
-            led.set_led(0, LED_DETECT[max_index])
+        ##########
 
-        #########
+        #led.display()
 
-        led.display()
-
-        if not victim_exists:
-            if ('LED_DISABLED' in globals()):
-                uart.write('N')
-            print('No Victim Detected')
+        #if not victim_exists:
+            #uart.write('N')
+            #if (LABELS[max_index] == "N"):
+                #print('MODEL_N:', pmax)
+            #else :
+                #print('No Victim Detected')
 
         #except:
             #pass
