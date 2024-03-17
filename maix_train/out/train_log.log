@@ -1,172 +1,142 @@
-2024-03-16 02:18:47,533 - [INFO]:  progress: 0%, start
-2024-03-16 02:18:47,534 - [INFO]:  progress: 1%, start train
-2024-03-16 02:18:47,556 - [INFO]:  select PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')
-2024-03-16 02:20:18,463 - [INFO]:  train, labels:['LTR_H', 'LTR_S', 'LTR_U', 'N']
-2024-03-16 02:20:18,463 - [DEBUG]:  train, datasets dir:/root/maix_train/out/datasets/images
-2024-03-16 02:20:21,366 - [INFO]:  train data:16147, valid data:4035
-2024-03-16 02:20:21,806 - [INFO]:  train start
-2024-03-16 02:20:21,806 - [INFO]:  progress: 1.0%, train start
-2024-03-16 02:20:21,858 - [INFO]:  epoch 0 start
-2024-03-16 02:24:16,161 - [INFO]:  epoch 0 end: {'loss': 0.2766624391078949, 'accuracy': 0.9424759745597839, 'val_loss': 0.1405506134033203, 'val_accuracy': 0.9729662537574768}
-2024-03-16 02:24:16,161 - [INFO]:  progress: 2.94%, train epoch end
-2024-03-16 02:24:16,174 - [INFO]:  epoch 1 start
-2024-03-16 02:28:07,878 - [INFO]:  epoch 1 end: {'loss': 0.12284217029809952, 'accuracy': 0.9742475748062134, 'val_loss': 0.09684191644191742, 'val_accuracy': 0.9784226417541504}
-2024-03-16 02:28:07,879 - [INFO]:  progress: 4.88%, train epoch end
-2024-03-16 02:28:07,893 - [INFO]:  epoch 2 start
-2024-03-16 02:31:57,176 - [INFO]:  epoch 2 end: {'loss': 0.10029046982526779, 'accuracy': 0.9764195084571838, 'val_loss': 0.08124487102031708, 'val_accuracy': 0.983134925365448}
-2024-03-16 02:31:57,177 - [INFO]:  progress: 6.82%, train epoch end
-2024-03-16 02:31:57,190 - [INFO]:  epoch 3 start
-2024-03-16 02:35:44,454 - [INFO]:  epoch 3 end: {'loss': 0.08304081112146378, 'accuracy': 0.9800806641578674, 'val_loss': 0.07465542107820511, 'val_accuracy': 0.983134925365448}
-2024-03-16 02:35:44,455 - [INFO]:  progress: 8.76%, train epoch end
-2024-03-16 02:35:44,466 - [INFO]:  epoch 4 start
-2024-03-16 02:39:35,381 - [INFO]:  epoch 4 end: {'loss': 0.08286792039871216, 'accuracy': 0.9789016246795654, 'val_loss': 0.06874412298202515, 'val_accuracy': 0.984375}
-2024-03-16 02:39:35,381 - [INFO]:  progress: 10.7%, train epoch end
-2024-03-16 02:39:35,397 - [INFO]:  epoch 5 start
-2024-03-16 02:43:22,099 - [INFO]:  epoch 5 end: {'loss': 0.08048565685749054, 'accuracy': 0.9788395762443542, 'val_loss': 0.06508829444646835, 'val_accuracy': 0.9851190447807312}
-2024-03-16 02:43:22,099 - [INFO]:  progress: 12.64%, train epoch end
-2024-03-16 02:43:22,111 - [INFO]:  epoch 6 start
-2024-03-16 02:47:09,068 - [INFO]:  epoch 6 end: {'loss': 0.07065463811159134, 'accuracy': 0.9811356067657471, 'val_loss': 0.057455990463495255, 'val_accuracy': 0.9890872836112976}
-2024-03-16 02:47:09,069 - [INFO]:  progress: 14.580000000000002%, train epoch end
-2024-03-16 02:47:09,080 - [INFO]:  epoch 7 start
-2024-03-16 02:50:58,039 - [INFO]:  epoch 7 end: {'loss': 0.07340213656425476, 'accuracy': 0.9811976552009583, 'val_loss': 0.05851082131266594, 'val_accuracy': 0.9861111044883728}
-2024-03-16 02:50:58,040 - [INFO]:  progress: 16.52%, train epoch end
-2024-03-16 02:50:58,052 - [INFO]:  epoch 8 start
-2024-03-16 02:54:45,428 - [INFO]:  epoch 8 end: {'loss': 0.06680548191070557, 'accuracy': 0.9819422960281372, 'val_loss': 0.0458839051425457, 'val_accuracy': 0.99057537317276}
-2024-03-16 02:54:45,429 - [INFO]:  progress: 18.46%, train epoch end
-2024-03-16 02:54:45,441 - [INFO]:  epoch 9 start
-2024-03-16 02:58:31,625 - [INFO]:  epoch 9 end: {'loss': 0.06205373629927635, 'accuracy': 0.9823145866394043, 'val_loss': 0.060053884983062744, 'val_accuracy': 0.984375}
-2024-03-16 02:58:31,625 - [INFO]:  progress: 20.4%, train epoch end
-2024-03-16 02:58:31,638 - [INFO]:  epoch 10 start
-2024-03-16 03:02:17,277 - [INFO]:  epoch 10 end: {'loss': 0.06297151744365692, 'accuracy': 0.9820663928985596, 'val_loss': 0.05890273675322533, 'val_accuracy': 0.9858630895614624}
-2024-03-16 03:02:17,278 - [INFO]:  progress: 22.34%, train epoch end
-2024-03-16 03:02:17,290 - [INFO]:  epoch 11 start
-2024-03-16 03:06:04,430 - [INFO]:  epoch 11 end: {'loss': 0.06210462749004364, 'accuracy': 0.9835556745529175, 'val_loss': 0.049729909747838974, 'val_accuracy': 0.988095223903656}
-2024-03-16 03:06:04,431 - [INFO]:  progress: 24.28%, train epoch end
-2024-03-16 03:06:04,444 - [INFO]:  epoch 12 start
-2024-03-16 03:09:51,718 - [INFO]:  epoch 12 end: {'loss': 0.058347757905721664, 'accuracy': 0.9836798310279846, 'val_loss': 0.05451509356498718, 'val_accuracy': 0.9851190447807312}
-2024-03-16 03:09:51,718 - [INFO]:  progress: 26.22%, train epoch end
-2024-03-16 03:09:51,733 - [INFO]:  epoch 13 start
-2024-03-16 03:13:50,105 - [INFO]:  epoch 13 end: {'loss': 0.05893015116453171, 'accuracy': 0.9837418794631958, 'val_loss': 0.047596417367458344, 'val_accuracy': 0.9878472089767456}
-2024-03-16 03:13:50,106 - [INFO]:  progress: 28.160000000000004%, train epoch end
-2024-03-16 03:13:50,119 - [INFO]:  epoch 14 start
-2024-03-16 03:17:38,060 - [INFO]:  epoch 14 end: {'loss': 0.0546659380197525, 'accuracy': 0.9851691126823425, 'val_loss': 0.05387632176280022, 'val_accuracy': 0.9858630895614624}
-2024-03-16 03:17:38,061 - [INFO]:  progress: 30.099999999999998%, train epoch end
-2024-03-16 03:17:38,077 - [INFO]:  epoch 15 start
-2024-03-16 03:21:26,583 - [INFO]:  epoch 15 end: {'loss': 0.05663195997476578, 'accuracy': 0.9841762185096741, 'val_loss': 0.048799123615026474, 'val_accuracy': 0.9875991940498352}
-2024-03-16 03:21:26,584 - [INFO]:  progress: 32.04%, train epoch end
-2024-03-16 03:21:26,597 - [INFO]:  epoch 16 start
-2024-03-16 03:25:14,148 - [INFO]:  epoch 16 end: {'loss': 0.05496919900178909, 'accuracy': 0.9851070642471313, 'val_loss': 0.04685206338763237, 'val_accuracy': 0.9883432388305664}
-2024-03-16 03:25:14,148 - [INFO]:  progress: 33.98%, train epoch end
-2024-03-16 03:25:14,164 - [INFO]:  epoch 17 start
-2024-03-16 03:29:03,497 - [INFO]:  epoch 17 end: {'loss': 0.05463603883981705, 'accuracy': 0.9853552579879761, 'val_loss': 0.047193240374326706, 'val_accuracy': 0.9875991940498352}
-2024-03-16 03:29:03,497 - [INFO]:  progress: 35.92%, train epoch end
-2024-03-16 03:29:03,512 - [INFO]:  epoch 18 start
-2024-03-16 03:32:52,645 - [INFO]:  epoch 18 end: {'loss': 0.05472186207771301, 'accuracy': 0.9828110337257385, 'val_loss': 0.04188099503517151, 'val_accuracy': 0.9890872836112976}
-2024-03-16 03:32:52,646 - [INFO]:  progress: 37.86%, train epoch end
-2024-03-16 03:32:52,661 - [INFO]:  epoch 19 start
-2024-03-16 03:36:39,995 - [INFO]:  epoch 19 end: {'loss': 0.05217058211565018, 'accuracy': 0.9853552579879761, 'val_loss': 0.0427861213684082, 'val_accuracy': 0.99057537317276}
-2024-03-16 03:36:39,996 - [INFO]:  progress: 39.8%, train epoch end
-2024-03-16 03:36:40,013 - [INFO]:  epoch 20 start
-2024-03-16 03:40:27,800 - [INFO]:  epoch 20 end: {'loss': 0.05367201939225197, 'accuracy': 0.9853552579879761, 'val_loss': 0.0431290902197361, 'val_accuracy': 0.9883432388305664}
-2024-03-16 03:40:27,801 - [INFO]:  progress: 41.74%, train epoch end
-2024-03-16 03:40:27,815 - [INFO]:  epoch 21 start
-2024-03-16 03:44:14,093 - [INFO]:  epoch 21 end: {'loss': 0.05067765340209007, 'accuracy': 0.9857276082038879, 'val_loss': 0.036489322781562805, 'val_accuracy': 0.9920634627342224}
-2024-03-16 03:44:14,094 - [INFO]:  progress: 43.68%, train epoch end
-2024-03-16 03:44:14,107 - [INFO]:  epoch 22 start
-2024-03-16 03:47:59,251 - [INFO]:  epoch 22 end: {'loss': 0.0466097816824913, 'accuracy': 0.9862239956855774, 'val_loss': 0.0430075079202652, 'val_accuracy': 0.9878472089767456}
-2024-03-16 03:47:59,252 - [INFO]:  progress: 45.62%, train epoch end
-2024-03-16 03:47:59,264 - [INFO]:  epoch 23 start
-2024-03-16 03:51:46,920 - [INFO]:  epoch 23 end: {'loss': 0.053143616765737534, 'accuracy': 0.984920859336853, 'val_loss': 0.043727532029151917, 'val_accuracy': 0.9900793433189392}
-2024-03-16 03:51:46,921 - [INFO]:  progress: 47.56%, train epoch end
-2024-03-16 03:51:46,932 - [INFO]:  epoch 24 start
-2024-03-16 03:55:36,432 - [INFO]:  epoch 24 end: {'loss': 0.05095822364091873, 'accuracy': 0.984920859336853, 'val_loss': 0.041896432638168335, 'val_accuracy': 0.9890872836112976}
-2024-03-16 03:55:36,432 - [INFO]:  progress: 49.5%, train epoch end
-2024-03-16 03:55:36,444 - [INFO]:  epoch 25 start
-2024-03-16 03:59:24,538 - [INFO]:  epoch 25 end: {'loss': 0.04925570264458656, 'accuracy': 0.9854173064231873, 'val_loss': 0.043801091611385345, 'val_accuracy': 0.9885912537574768}
-2024-03-16 03:59:24,539 - [INFO]:  progress: 51.44%, train epoch end
-2024-03-16 03:59:24,555 - [INFO]:  epoch 26 start
-2024-03-16 04:03:13,382 - [INFO]:  epoch 26 end: {'loss': 0.04563687741756439, 'accuracy': 0.9867204427719116, 'val_loss': 0.04364259913563728, 'val_accuracy': 0.9875991940498352}
-2024-03-16 04:03:13,382 - [INFO]:  progress: 53.379999999999995%, train epoch end
-2024-03-16 04:03:13,395 - [INFO]:  epoch 27 start
-2024-03-16 04:07:02,409 - [INFO]:  epoch 27 end: {'loss': 0.04676320403814316, 'accuracy': 0.9870927929878235, 'val_loss': 0.046531565487384796, 'val_accuracy': 0.9883432388305664}
-2024-03-16 04:07:02,409 - [INFO]:  progress: 55.32000000000001%, train epoch end
-2024-03-16 04:07:02,423 - [INFO]:  epoch 28 start
-2024-03-16 04:10:51,126 - [INFO]:  epoch 28 end: {'loss': 0.047512032091617584, 'accuracy': 0.9865963459014893, 'val_loss': 0.04630358889698982, 'val_accuracy': 0.9861111044883728}
-2024-03-16 04:10:51,126 - [INFO]:  progress: 57.25999999999999%, train epoch end
-2024-03-16 04:10:51,139 - [INFO]:  epoch 29 start
-2024-03-16 04:14:42,005 - [INFO]:  epoch 29 end: {'loss': 0.04947234317660332, 'accuracy': 0.9853552579879761, 'val_loss': 0.04802926629781723, 'val_accuracy': 0.9866071343421936}
-2024-03-16 04:14:42,006 - [INFO]:  progress: 59.199999999999996%, train epoch end
-2024-03-16 04:14:42,021 - [INFO]:  epoch 30 start
-2024-03-16 04:18:31,310 - [INFO]:  epoch 30 end: {'loss': 0.05056389048695564, 'accuracy': 0.9857896566390991, 'val_loss': 0.03930266201496124, 'val_accuracy': 0.9890872836112976}
-2024-03-16 04:18:31,311 - [INFO]:  progress: 61.14%, train epoch end
-2024-03-16 04:18:31,324 - [INFO]:  epoch 31 start
-2024-03-16 04:22:18,541 - [INFO]:  epoch 31 end: {'loss': 0.04696055129170418, 'accuracy': 0.9867824912071228, 'val_loss': 0.039531394839286804, 'val_accuracy': 0.9871031641960144}
-2024-03-16 04:22:18,542 - [INFO]:  progress: 63.08%, train epoch end
-2024-03-16 04:22:18,555 - [INFO]:  epoch 32 start
-2024-03-16 04:26:08,528 - [INFO]:  epoch 32 end: {'loss': 0.04442382976412773, 'accuracy': 0.9867824912071228, 'val_loss': 0.04422086477279663, 'val_accuracy': 0.988095223903656}
-2024-03-16 04:26:08,528 - [INFO]:  progress: 65.02%, train epoch end
-2024-03-16 04:26:08,544 - [INFO]:  epoch 33 start
-2024-03-16 04:29:57,364 - [INFO]:  epoch 33 end: {'loss': 0.04594455286860466, 'accuracy': 0.9869065880775452, 'val_loss': 0.04569430649280548, 'val_accuracy': 0.9885912537574768}
-2024-03-16 04:29:57,364 - [INFO]:  progress: 66.96%, train epoch end
-2024-03-16 04:29:57,375 - [INFO]:  epoch 34 start
-2024-03-16 04:33:46,422 - [INFO]:  epoch 34 end: {'loss': 0.04750661924481392, 'accuracy': 0.9853552579879761, 'val_loss': 0.039804037660360336, 'val_accuracy': 0.989335298538208}
-2024-03-16 04:33:46,422 - [INFO]:  progress: 68.89999999999999%, train epoch end
-2024-03-16 04:33:46,444 - [INFO]:  epoch 35 start
-2024-03-16 04:37:34,441 - [INFO]:  epoch 35 end: {'loss': 0.04555759206414223, 'accuracy': 0.9863481521606445, 'val_loss': 0.04096401855349541, 'val_accuracy': 0.989335298538208}
-2024-03-16 04:37:34,441 - [INFO]:  progress: 70.84%, train epoch end
-2024-03-16 04:37:34,456 - [INFO]:  epoch 36 start
-2024-03-16 04:41:23,764 - [INFO]:  epoch 36 end: {'loss': 0.04457421973347664, 'accuracy': 0.988023579120636, 'val_loss': 0.04123245179653168, 'val_accuracy': 0.9890872836112976}
-2024-03-16 04:41:23,765 - [INFO]:  progress: 72.78%, train epoch end
-2024-03-16 04:41:23,780 - [INFO]:  epoch 37 start
-2024-03-16 04:45:11,091 - [INFO]:  epoch 37 end: {'loss': 0.04398854449391365, 'accuracy': 0.987278938293457, 'val_loss': 0.04044342413544655, 'val_accuracy': 0.9883432388305664}
-2024-03-16 04:45:11,092 - [INFO]:  progress: 74.72%, train epoch end
-2024-03-16 04:45:11,108 - [INFO]:  epoch 38 start
-2024-03-16 04:48:58,854 - [INFO]:  epoch 38 end: {'loss': 0.04404990002512932, 'accuracy': 0.9861619472503662, 'val_loss': 0.0435124970972538, 'val_accuracy': 0.988095223903656}
-2024-03-16 04:48:58,855 - [INFO]:  progress: 76.66%, train epoch end
-2024-03-16 04:48:58,867 - [INFO]:  epoch 39 start
-2024-03-16 04:52:47,010 - [INFO]:  epoch 39 end: {'loss': 0.04683234542608261, 'accuracy': 0.9856034517288208, 'val_loss': 0.04452725127339363, 'val_accuracy': 0.988095223903656}
-2024-03-16 04:52:47,011 - [INFO]:  progress: 78.6%, train epoch end
-2024-03-16 04:52:47,026 - [INFO]:  epoch 40 start
-2024-03-16 04:56:32,968 - [INFO]:  epoch 40 end: {'loss': 0.043149080127477646, 'accuracy': 0.9874650835990906, 'val_loss': 0.042223069816827774, 'val_accuracy': 0.9878472089767456}
-2024-03-16 04:56:32,969 - [INFO]:  progress: 80.53999999999999%, train epoch end
-2024-03-16 04:56:32,982 - [INFO]:  epoch 41 start
-2024-03-16 05:00:17,708 - [INFO]:  epoch 41 end: {'loss': 0.04648919403553009, 'accuracy': 0.9858517050743103, 'val_loss': 0.04447090998291969, 'val_accuracy': 0.988095223903656}
-2024-03-16 05:00:17,708 - [INFO]:  progress: 82.48%, train epoch end
-2024-03-16 05:00:17,721 - [INFO]:  epoch 42 start
-2024-03-16 05:04:03,765 - [INFO]:  epoch 42 end: {'loss': 0.04367817938327789, 'accuracy': 0.9877133369445801, 'val_loss': 0.04191998764872551, 'val_accuracy': 0.9883432388305664}
-2024-03-16 05:04:03,765 - [INFO]:  progress: 84.42%, train epoch end
-2024-03-16 05:04:03,780 - [INFO]:  epoch 43 start
-2024-03-16 05:07:50,499 - [INFO]:  epoch 43 end: {'loss': 0.041753094643354416, 'accuracy': 0.987278938293457, 'val_loss': 0.03480624035000801, 'val_accuracy': 0.99057537317276}
-2024-03-16 05:07:50,500 - [INFO]:  progress: 86.36%, train epoch end
-2024-03-16 05:07:50,513 - [INFO]:  epoch 44 start
-2024-03-16 05:11:38,316 - [INFO]:  epoch 44 end: {'loss': 0.045541729778051376, 'accuracy': 0.9864102005958557, 'val_loss': 0.04041118547320366, 'val_accuracy': 0.9888392686843872}
-2024-03-16 05:11:38,317 - [INFO]:  progress: 88.3%, train epoch end
-2024-03-16 05:11:38,332 - [INFO]:  epoch 45 start
-2024-03-16 05:15:26,467 - [INFO]:  epoch 45 end: {'loss': 0.04717884957790375, 'accuracy': 0.9861619472503662, 'val_loss': 0.037932127714157104, 'val_accuracy': 0.9903273582458496}
-2024-03-16 05:15:26,467 - [INFO]:  progress: 90.24%, train epoch end
-2024-03-16 05:15:26,483 - [INFO]:  epoch 46 start
-2024-03-16 05:19:12,392 - [INFO]:  epoch 46 end: {'loss': 0.04335599020123482, 'accuracy': 0.9878994822502136, 'val_loss': 0.03972999379038811, 'val_accuracy': 0.9895833134651184}
-2024-03-16 05:19:12,393 - [INFO]:  progress: 92.17999999999999%, train epoch end
-2024-03-16 05:19:12,405 - [INFO]:  epoch 47 start
-2024-03-16 05:22:59,169 - [INFO]:  epoch 47 end: {'loss': 0.04222164303064346, 'accuracy': 0.9881476759910583, 'val_loss': 0.03540892153978348, 'val_accuracy': 0.9898313283920288}
-2024-03-16 05:22:59,169 - [INFO]:  progress: 94.12%, train epoch end
-2024-03-16 05:22:59,183 - [INFO]:  epoch 48 start
-2024-03-16 05:26:49,172 - [INFO]:  epoch 48 end: {'loss': 0.040920037776231766, 'accuracy': 0.9874650835990906, 'val_loss': 0.04134910926222801, 'val_accuracy': 0.9878472089767456}
-2024-03-16 05:26:49,173 - [INFO]:  progress: 96.06%, train epoch end
-2024-03-16 05:27:21,106 - [INFO]:  epoch 49 start
-2024-03-16 05:31:23,926 - [INFO]:  epoch 49 end: {'loss': 0.04049226641654968, 'accuracy': 0.9888302683830261, 'val_loss': 0.03915346413850784, 'val_accuracy': 0.9895833134651184}
-2024-03-16 05:31:23,927 - [INFO]:  progress: 98.0%, train epoch end
-2024-03-16 05:31:23,928 - [INFO]:  train end
-2024-03-16 05:31:23,929 - [INFO]:  progress: 98.0%, train end
-2024-03-16 05:31:23,931 - [INFO]:  train ok, now generate report
-2024-03-16 05:31:23,931 - [INFO]:  generate report image
-2024-03-16 05:32:44,022 - [INFO]:  generate report image end
-2024-03-16 05:32:44,023 - [INFO]:  now generate kmodel
-2024-03-16 05:32:44,023 - [INFO]:  save model as .h5 file
-2024-03-16 05:32:44,304 - [INFO]:  save model as .tflite file
-2024-03-16 05:33:05,750 - [INFO]:  copy template files
-2024-03-16 05:33:05,795 - [INFO]:  pack result to zip file
-2024-03-16 05:33:05,948 - [INFO]:  progress: 99%, pack ok
-2024-03-16 05:33:05,948 - [INFO]:  progress: 100%, task complete
-2024-03-16 05:33:05,948 - [INFO]:  OK, task complete, result uri: /root/maix_train/out/maixhub_classifier_result_2024_03_16__05_33.zip
-2024-03-16 05:33:05,949 - [INFO]:  success: out_dir: /root/maix_train/out/maixhub_classifier_result_2024_03_16__05_33.zip
+2024-03-16 15:22:29,144 - [INFO]:  progress: 0%, start
+2024-03-16 15:22:29,145 - [INFO]:  progress: 1%, start train
+2024-03-16 15:22:29,350 - [INFO]:  select PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')
+2024-03-16 15:24:27,413 - [INFO]:  train, labels:['LTR_H', 'LTR_S', 'LTR_U', 'N']
+2024-03-16 15:24:27,414 - [DEBUG]:  train, datasets dir:/root/maix_train/out/datasets/images
+2024-03-16 15:24:30,870 - [INFO]:  train data:21362, valid data:5339
+2024-03-16 15:24:30,976 - [INFO]:  train start
+2024-03-16 15:24:30,977 - [INFO]:  progress: 1.0%, train start
+2024-03-16 15:24:31,033 - [INFO]:  epoch 0 start
+2024-03-16 15:29:51,437 - [INFO]:  epoch 0 end: {'loss': 0.14803633093833923, 'accuracy': 0.9582806825637817, 'val_loss': 0.09614446759223938, 'val_accuracy': 0.9713214635848999}
+2024-03-16 15:29:51,438 - [INFO]:  progress: 3.425%, train epoch end
+2024-03-16 15:29:51,450 - [INFO]:  epoch 1 start
+2024-03-16 15:34:58,351 - [INFO]:  epoch 1 end: {'loss': 0.08930761367082596, 'accuracy': 0.9726085066795349, 'val_loss': 0.07579334825277328, 'val_accuracy': 0.9782568216323853}
+2024-03-16 15:34:58,352 - [INFO]:  progress: 5.85%, train epoch end
+2024-03-16 15:34:58,365 - [INFO]:  epoch 2 start
+2024-03-16 15:40:04,762 - [INFO]:  epoch 2 end: {'loss': 0.07686083763837814, 'accuracy': 0.9754179120063782, 'val_loss': 0.07726135849952698, 'val_accuracy': 0.9760075211524963}
+2024-03-16 15:40:04,763 - [INFO]:  progress: 8.274999999999999%, train epoch end
+2024-03-16 15:40:04,777 - [INFO]:  epoch 3 start
+2024-03-16 15:45:11,243 - [INFO]:  epoch 3 end: {'loss': 0.07377228140830994, 'accuracy': 0.9761670827865601, 'val_loss': 0.0652758926153183, 'val_accuracy': 0.9795688986778259}
+2024-03-16 15:45:11,243 - [INFO]:  progress: 10.7%, train epoch end
+2024-03-16 15:45:11,256 - [INFO]:  epoch 4 start
+2024-03-16 15:50:17,717 - [INFO]:  epoch 4 end: {'loss': 0.07039141654968262, 'accuracy': 0.9770566821098328, 'val_loss': 0.07858652621507645, 'val_accuracy': 0.9743205308914185}
+2024-03-16 15:50:17,718 - [INFO]:  progress: 13.125%, train epoch end
+2024-03-16 15:50:17,733 - [INFO]:  epoch 5 start
+2024-03-16 15:55:23,339 - [INFO]:  epoch 5 end: {'loss': 0.06393833458423615, 'accuracy': 0.979866087436676, 'val_loss': 0.05915046110749245, 'val_accuracy': 0.980131208896637}
+2024-03-16 15:55:23,339 - [INFO]:  progress: 15.549999999999999%, train epoch end
+2024-03-16 15:55:23,353 - [INFO]:  epoch 6 start
+2024-03-16 16:00:29,282 - [INFO]:  epoch 6 end: {'loss': 0.06336364150047302, 'accuracy': 0.979444682598114, 'val_loss': 0.07011434435844421, 'val_accuracy': 0.977319598197937}
+2024-03-16 16:00:29,283 - [INFO]:  progress: 17.974999999999998%, train epoch end
+2024-03-16 16:00:29,295 - [INFO]:  epoch 7 start
+2024-03-16 16:05:33,400 - [INFO]:  epoch 7 end: {'loss': 0.061019159853458405, 'accuracy': 0.9805684089660645, 'val_loss': 0.06382504850625992, 'val_accuracy': 0.9791939854621887}
+2024-03-16 16:05:33,401 - [INFO]:  progress: 20.4%, train epoch end
+2024-03-16 16:05:33,413 - [INFO]:  epoch 8 start
+2024-03-16 16:10:36,819 - [INFO]:  epoch 8 end: {'loss': 0.05936789512634277, 'accuracy': 0.9807088971138, 'val_loss': 0.06103773042559624, 'val_accuracy': 0.980131208896637}
+2024-03-16 16:10:36,820 - [INFO]:  progress: 22.825%, train epoch end
+2024-03-16 16:10:36,836 - [INFO]:  epoch 9 start
+2024-03-16 16:15:42,239 - [INFO]:  epoch 9 end: {'loss': 0.05680927261710167, 'accuracy': 0.9812239408493042, 'val_loss': 0.05695157125592232, 'val_accuracy': 0.9816307425498962}
+2024-03-16 16:15:42,240 - [INFO]:  progress: 25.25%, train epoch end
+2024-03-16 16:15:42,254 - [INFO]:  epoch 10 start
+2024-03-16 16:20:45,485 - [INFO]:  epoch 10 end: {'loss': 0.062370751053094864, 'accuracy': 0.9805216193199158, 'val_loss': 0.06443119049072266, 'val_accuracy': 0.976757287979126}
+2024-03-16 16:20:45,485 - [INFO]:  progress: 27.675000000000004%, train epoch end
+2024-03-16 16:20:45,500 - [INFO]:  epoch 11 start
+2024-03-16 16:25:49,642 - [INFO]:  epoch 11 end: {'loss': 0.057303234934806824, 'accuracy': 0.9817389845848083, 'val_loss': 0.05191254988312721, 'val_accuracy': 0.9816307425498962}
+2024-03-16 16:25:49,643 - [INFO]:  progress: 30.099999999999998%, train epoch end
+2024-03-16 16:25:49,661 - [INFO]:  epoch 12 start
+2024-03-16 16:31:02,331 - [INFO]:  epoch 12 end: {'loss': 0.05696246027946472, 'accuracy': 0.9809430241584778, 'val_loss': 0.0529460571706295, 'val_accuracy': 0.9818181991577148}
+2024-03-16 16:31:02,331 - [INFO]:  progress: 32.525%, train epoch end
+2024-03-16 16:31:02,346 - [INFO]:  epoch 13 start
+2024-03-16 16:36:05,351 - [INFO]:  epoch 13 end: {'loss': 0.05547422543168068, 'accuracy': 0.9816453456878662, 'val_loss': 0.07013296335935593, 'val_accuracy': 0.9763823747634888}
+2024-03-16 16:36:05,352 - [INFO]:  progress: 34.949999999999996%, train epoch end
+2024-03-16 16:36:05,366 - [INFO]:  epoch 14 start
+2024-03-16 16:41:09,575 - [INFO]:  epoch 14 end: {'loss': 0.05600324273109436, 'accuracy': 0.9810835123062134, 'val_loss': 0.0606861412525177, 'val_accuracy': 0.9793814420700073}
+2024-03-16 16:41:09,576 - [INFO]:  progress: 37.375%, train epoch end
+2024-03-16 16:41:09,589 - [INFO]:  epoch 15 start
+2024-03-16 16:46:12,872 - [INFO]:  epoch 15 end: {'loss': 0.054206524044275284, 'accuracy': 0.9825817942619324, 'val_loss': 0.05566484481096268, 'val_accuracy': 0.9831302762031555}
+2024-03-16 16:46:12,873 - [INFO]:  progress: 39.8%, train epoch end
+2024-03-16 16:46:12,886 - [INFO]:  epoch 16 start
+2024-03-16 16:51:16,468 - [INFO]:  epoch 16 end: {'loss': 0.056582335382699966, 'accuracy': 0.9811303019523621, 'val_loss': 0.05990608036518097, 'val_accuracy': 0.977881908416748}
+2024-03-16 16:51:16,468 - [INFO]:  progress: 42.225%, train epoch end
+2024-03-16 16:51:16,483 - [INFO]:  epoch 17 start
+2024-03-16 16:56:20,277 - [INFO]:  epoch 17 end: {'loss': 0.05408678576350212, 'accuracy': 0.9826754927635193, 'val_loss': 0.058595236390829086, 'val_accuracy': 0.9786316752433777}
+2024-03-16 16:56:20,278 - [INFO]:  progress: 44.65%, train epoch end
+2024-03-16 16:56:20,293 - [INFO]:  epoch 18 start
+2024-03-16 17:01:24,235 - [INFO]:  epoch 18 end: {'loss': 0.051937807351350784, 'accuracy': 0.9832373261451721, 'val_loss': 0.06531327962875366, 'val_accuracy': 0.9788191318511963}
+2024-03-16 17:01:24,235 - [INFO]:  progress: 47.074999999999996%, train epoch end
+2024-03-16 17:01:24,249 - [INFO]:  epoch 19 start
+2024-03-16 17:06:27,538 - [INFO]:  epoch 19 end: {'loss': 0.052366022020578384, 'accuracy': 0.9833778142929077, 'val_loss': 0.05348357930779457, 'val_accuracy': 0.9808809757232666}
+2024-03-16 17:06:27,539 - [INFO]:  progress: 49.5%, train epoch end
+2024-03-16 17:06:27,553 - [INFO]:  epoch 20 start
+2024-03-16 17:11:30,978 - [INFO]:  epoch 20 end: {'loss': 0.054120518267154694, 'accuracy': 0.9821603894233704, 'val_loss': 0.051461342722177505, 'val_accuracy': 0.9831302762031555}
+2024-03-16 17:11:30,979 - [INFO]:  progress: 51.925%, train epoch end
+2024-03-16 17:11:30,994 - [INFO]:  epoch 21 start
+2024-03-16 17:16:40,525 - [INFO]:  epoch 21 end: {'loss': 0.05317600071430206, 'accuracy': 0.9821135997772217, 'val_loss': 0.056843120604753494, 'val_accuracy': 0.981255829334259}
+2024-03-16 17:16:40,526 - [INFO]:  progress: 54.35000000000001%, train epoch end
+2024-03-16 17:16:40,540 - [INFO]:  epoch 22 start
+2024-03-16 17:21:44,885 - [INFO]:  epoch 22 end: {'loss': 0.04728270322084427, 'accuracy': 0.9844547510147095, 'val_loss': 0.05570913851261139, 'val_accuracy': 0.9814432859420776}
+2024-03-16 17:21:44,886 - [INFO]:  progress: 56.77499999999999%, train epoch end
+2024-03-16 17:21:44,903 - [INFO]:  epoch 23 start
+2024-03-16 17:26:48,891 - [INFO]:  epoch 23 end: {'loss': 0.052834801375865936, 'accuracy': 0.9826754927635193, 'val_loss': 0.05325628072023392, 'val_accuracy': 0.9820055961608887}
+2024-03-16 17:26:48,892 - [INFO]:  progress: 59.199999999999996%, train epoch end
+2024-03-16 17:26:48,907 - [INFO]:  epoch 24 start
+2024-03-16 17:31:52,018 - [INFO]:  epoch 24 end: {'loss': 0.050232112407684326, 'accuracy': 0.9830968976020813, 'val_loss': 0.05782679095864296, 'val_accuracy': 0.9814432859420776}
+2024-03-16 17:31:52,019 - [INFO]:  progress: 61.625%, train epoch end
+2024-03-16 17:31:52,032 - [INFO]:  epoch 25 start
+2024-03-16 17:36:56,248 - [INFO]:  epoch 25 end: {'loss': 0.05041838437318802, 'accuracy': 0.9833309650421143, 'val_loss': 0.05302867665886879, 'val_accuracy': 0.9827553629875183}
+2024-03-16 17:36:56,249 - [INFO]:  progress: 64.05%, train epoch end
+2024-03-16 17:36:56,269 - [INFO]:  epoch 26 start
+2024-03-16 17:41:58,420 - [INFO]:  epoch 26 end: {'loss': 0.053867291659116745, 'accuracy': 0.9825817942619324, 'val_loss': 0.04990159347653389, 'val_accuracy': 0.9823805093765259}
+2024-03-16 17:41:58,421 - [INFO]:  progress: 66.475%, train epoch end
+2024-03-16 17:41:58,436 - [INFO]:  epoch 27 start
+2024-03-16 17:47:02,162 - [INFO]:  epoch 27 end: {'loss': 0.04972682148218155, 'accuracy': 0.9832373261451721, 'val_loss': 0.055876437574625015, 'val_accuracy': 0.9818181991577148}
+2024-03-16 17:47:02,162 - [INFO]:  progress: 68.89999999999999%, train epoch end
+2024-03-16 17:47:02,177 - [INFO]:  epoch 28 start
+2024-03-16 17:52:05,079 - [INFO]:  epoch 28 end: {'loss': 0.04869905114173889, 'accuracy': 0.9835183024406433, 'val_loss': 0.053494494408369064, 'val_accuracy': 0.981255829334259}
+2024-03-16 17:52:05,080 - [INFO]:  progress: 71.325%, train epoch end
+2024-03-16 17:52:05,095 - [INFO]:  epoch 29 start
+2024-03-16 17:57:08,971 - [INFO]:  epoch 29 end: {'loss': 0.05127068981528282, 'accuracy': 0.982722282409668, 'val_loss': 0.04618187993764877, 'val_accuracy': 0.9833177328109741}
+2024-03-16 17:57:08,972 - [INFO]:  progress: 73.75%, train epoch end
+2024-03-16 17:57:08,986 - [INFO]:  epoch 30 start
+2024-03-16 18:02:11,009 - [INFO]:  epoch 30 end: {'loss': 0.05179322883486748, 'accuracy': 0.982722282409668, 'val_loss': 0.05045149475336075, 'val_accuracy': 0.9823805093765259}
+2024-03-16 18:02:11,010 - [INFO]:  progress: 76.175%, train epoch end
+2024-03-16 18:02:11,024 - [INFO]:  epoch 31 start
+2024-03-16 18:07:14,742 - [INFO]:  epoch 31 end: {'loss': 0.049144111573696136, 'accuracy': 0.9833778142929077, 'val_loss': 0.05609072372317314, 'val_accuracy': 0.9818181991577148}
+2024-03-16 18:07:14,742 - [INFO]:  progress: 78.6%, train epoch end
+2024-03-16 18:07:14,758 - [INFO]:  epoch 32 start
+2024-03-16 18:12:17,334 - [INFO]:  epoch 32 end: {'loss': 0.05026746541261673, 'accuracy': 0.9841269850730896, 'val_loss': 0.05293607711791992, 'val_accuracy': 0.9827553629875183}
+2024-03-16 18:12:17,335 - [INFO]:  progress: 81.02499999999999%, train epoch end
+2024-03-16 18:12:17,350 - [INFO]:  epoch 33 start
+2024-03-16 18:17:20,766 - [INFO]:  epoch 33 end: {'loss': 0.04671775922179222, 'accuracy': 0.9845015406608582, 'val_loss': 0.048341263085603714, 'val_accuracy': 0.9846298098564148}
+2024-03-16 18:17:20,767 - [INFO]:  progress: 83.45%, train epoch end
+2024-03-16 18:17:20,781 - [INFO]:  epoch 34 start
+2024-03-16 18:22:22,801 - [INFO]:  epoch 34 end: {'loss': 0.05404005944728851, 'accuracy': 0.9825817942619324, 'val_loss': 0.049264613538980484, 'val_accuracy': 0.9821930527687073}
+2024-03-16 18:22:22,801 - [INFO]:  progress: 85.875%, train epoch end
+2024-03-16 18:22:22,816 - [INFO]:  epoch 35 start
+2024-03-16 18:27:26,641 - [INFO]:  epoch 35 end: {'loss': 0.05082687735557556, 'accuracy': 0.9831905364990234, 'val_loss': 0.051952239125967026, 'val_accuracy': 0.9831302762031555}
+2024-03-16 18:27:26,641 - [INFO]:  progress: 88.3%, train epoch end
+2024-03-16 18:27:26,656 - [INFO]:  epoch 36 start
+2024-03-16 18:32:30,905 - [INFO]:  epoch 36 end: {'loss': 0.049788009375333786, 'accuracy': 0.9834246635437012, 'val_loss': 0.05171872675418854, 'val_accuracy': 0.9820055961608887}
+2024-03-16 18:32:30,906 - [INFO]:  progress: 90.725%, train epoch end
+2024-03-16 18:32:30,920 - [INFO]:  epoch 37 start
+2024-03-16 18:37:33,174 - [INFO]:  epoch 37 end: {'loss': 0.04976062476634979, 'accuracy': 0.9830032587051392, 'val_loss': 0.05615014210343361, 'val_accuracy': 0.9818181991577148}
+2024-03-16 18:37:33,175 - [INFO]:  progress: 93.14999999999999%, train epoch end
+2024-03-16 18:37:33,189 - [INFO]:  epoch 38 start
+2024-03-16 18:42:38,346 - [INFO]:  epoch 38 end: {'loss': 0.046539682894945145, 'accuracy': 0.9840801358222961, 'val_loss': 0.05892128497362137, 'val_accuracy': 0.9791939854621887}
+2024-03-16 18:42:38,347 - [INFO]:  progress: 95.575%, train epoch end
+2024-03-16 18:42:38,361 - [INFO]:  epoch 39 start
+2024-03-16 18:47:42,588 - [INFO]:  epoch 39 end: {'loss': 0.04854347184300423, 'accuracy': 0.9830968976020813, 'val_loss': 0.0560939759016037, 'val_accuracy': 0.9821930527687073}
+2024-03-16 18:47:42,588 - [INFO]:  progress: 98.0%, train epoch end
+2024-03-16 18:47:42,592 - [INFO]:  train end
+2024-03-16 18:47:42,592 - [INFO]:  progress: 98.0%, train end
+2024-03-16 18:47:42,601 - [INFO]:  train ok, now generate report
+2024-03-16 18:47:42,602 - [INFO]:  generate report image
+2024-03-16 18:49:28,067 - [INFO]:  generate report image end
+2024-03-16 18:49:28,067 - [INFO]:  now generate kmodel
+2024-03-16 18:49:28,067 - [INFO]:  save model as .h5 file
+2024-03-16 18:49:28,369 - [INFO]:  save model as .tflite file
+2024-03-16 18:49:52,049 - [INFO]:  copy template files
+2024-03-16 18:49:52,081 - [INFO]:  pack result to zip file
+2024-03-16 18:49:52,228 - [INFO]:  progress: 99%, pack ok
+2024-03-16 18:49:52,229 - [INFO]:  progress: 100%, task complete
+2024-03-16 18:49:52,229 - [INFO]:  OK, task complete, result uri: /root/maix_train/out/maixhub_classifier_result_2024_03_16__18_49.zip
+2024-03-16 18:49:52,229 - [INFO]:  success: out_dir: /root/maix_train/out/maixhub_classifier_result_2024_03_16__18_49.zip
