@@ -15,5 +15,5 @@ def rotate_images_in_folder(folder_path):
                 rotated_img.save(os.path.join(folder_path, f'rotated_{angle}_{filename}'))
 
 # フォルダパスを指定
-folder_path = './LTR_U'
+folder_path = './LTR_H'
 rotate_images_in_folder(folder_path)
