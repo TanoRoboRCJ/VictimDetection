@@ -13,19 +13,19 @@ import KPU as kpu
 
 # CONFIG 試合前にここを調整
 CALIBRATION = None      ######### 試合時は絶対コメントアウトしない！！！#########
-ENABLE_BINARY = None    ######### 試合時は絶対コメントアウトしない！！！#########
+ENABLE_BINARY = True    ######### 試合時は絶対コメントアウトしない！！！#########
 
 IS_LEFT = False
-IS_LEFT = True
+#IS_LEFT = True
 
-GAIN = 22.0
-WHITE_BAL = [(69.0, 64.0, 117.0)]
+GAIN = 26.0
+WHITE_BAL = [(64.0, 84.00001, 208.0)]
 
-RED = (22, 54, 31, 74, -1, 62)
+RED =(29, 62, 32, 92, -2, 51)
 YELLOW = (57, 90, -26, 16, 31, 79)
 GREEN = (49, 75, -44, -10, -43, -9)
 
-BLACK = (0, 40, -87, 85, -86, 86)
+BLACK = (0, 50, -87, 85, -86, 86)
 AREA = 2500
 
 SENSIBILITY = [0.90, 0.90, 0.82]
@@ -84,6 +84,8 @@ def init():
     sensor.set_auto_gain(False, gain_db = GAIN, gain_db_ceiling = GAIN)
     sensor.set_auto_whitebal(False, rgb_gain_db = WHITE_BAL[0])
 
+    #sensor.set_auto_whitebal(True)
+
     led.set_led(0, (100,100,100))
     led.display()
 
@@ -132,48 +134,47 @@ def main():
             continue
 
         ######### 文字認識 #########
-        #if ('ENABLE_BINARY' in globals()):
-        img.binary([BLACK])
-        #img.pix_to_ai()
-        #fmap = kpu.forward(task, img)
+        if ('ENABLE_BINARY' in globals()):
+            img.binary([BLACK])
+            img.pix_to_ai()
 
-        #plist = fmap[:]
-        #pmax = max(plist)
-        #max_index = plist.index(pmax)
+        fmap = kpu.forward(task, img)
 
-        #global mobilenet_counter
-        #mobilenet_exists = False
+        plist = fmap[:]
+        pmax = max(plist)
+        max_index = plist.index(pmax)
 
-        #if pmax >=0.5 and pmax <=1 and not LABELS[max_index] == "N":
-            #max_index = plist.index(pmax)
-            #mobilenet_exists = True
-            #print("DETECT:" + LABELS[max_index])
+        global mobilenet_counter
+        mobilenet_exists = False
 
-        #if mobilenet_exists == True:
-            #mobilenet_counter += 1
-        #else :
-            #mobilenet_counter = 0
+        if pmax >=0.5 and pmax <=1 and not LABELS[max_index] == "N":
+            max_index = plist.index(pmax)
+            mobilenet_exists = True
+            print("DETECT:" + LABELS[max_index])
 
-        #if mobilenet_counter >= 1:
-            #victim_exists = True
+        if mobilenet_exists == True:
+            mobilenet_counter += 1
+        else :
+            mobilenet_counter = 0
 
-            #uart.write(LABELS[max_index])
+        if mobilenet_counter >= 1:
+            victim_exists = True
 
-            #print(pmax)
-            #print(LABELS[max_index])
+            uart.write(LABELS[max_index])
 
-            #led.set_led(0, LED_DETECT[max_index])
+            print(pmax)
+            print(LABELS[max_index])
 
-        ##########
+            led.set_led(0, LED_DETECT[max_index])
 
-        #led.display()
+        led.display()
 
-        #if not victim_exists:
-            #uart.write('N')
-            #if (LABELS[max_index] == "N"):
-                #print('MODEL_N:', pmax)
-            #else :
-                #print('No Victim Detected')
+        if not victim_exists:
+            uart.write('N')
+            if (LABELS[max_index] == "N"):
+                print('MODEL_N:', pmax)
+            else :
+                print('No Victim Detected')
 
         #except:
             #pass
