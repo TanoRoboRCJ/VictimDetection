@@ -16,10 +16,10 @@ CALIBRATION = None      ######### 試合時は絶対コメントアウトしな�
 ENABLE_BINARY = True    ######### 試合時は絶対コメントアウトしない！！！#########
 
 IS_LEFT = False
-#IS_LEFT = True
+IS_LEFT = True
 
-GAIN = 26.0
-WHITE_BAL = [(64.0, 84.00001, 208.0)]
+GAIN = 40.0
+WHITE_BAL = [(75.0, 64.0, 108.0)]
 
 RED =(29, 62, 32, 92, -2, 51)
 YELLOW = (57, 90, -26, 16, 31, 79)
@@ -32,7 +32,7 @@ SENSIBILITY = [0.90, 0.90, 0.82]
 
 ## CONFIG MOBILENET
 LABELS = ["H", "S", "U", "N"]
-model_addr = "/sd/m.kmodel"
+model_addr = "/sd/0320.kmodel"
 
 ## GPIO
 fm.register(34,fm.fpioa.UART1_TX)
@@ -76,6 +76,7 @@ def init():
     sensor.set_pixformat(sensor.RGB565)
     sensor.set_framesize(sensor.QVGA)
     sensor.set_windowing((0, 0, 224, 224))
+    sensor.set_contrast(2)
 
     if IS_LEFT:
         sensor.set_hmirror(True)
@@ -136,6 +137,7 @@ def main():
         ######### 文字認識 #########
         if ('ENABLE_BINARY' in globals()):
             img.binary([BLACK])
+            #img.invert()
             img.pix_to_ai()
 
         fmap = kpu.forward(task, img)
