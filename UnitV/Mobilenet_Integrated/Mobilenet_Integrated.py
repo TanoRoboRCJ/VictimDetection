@@ -16,23 +16,23 @@ CALIBRATION = None      ######### 試合時は絶対コメントアウトしな�
 ENABLE_BINARY = True    ######### 試合時は絶対コメントアウトしない！！！#########
 
 IS_LEFT = False
-#IS_LEFT = True
+IS_LEFT = True
 
-GAIN = 40.0
-WHITE_BAL = [(75.0, 64.0, 108.0)]
+GAIN = 12.0
+WHITE_BAL = [(80.0, 64.0, 132.0)]
 
-RED = (29, 62, 32, 92, -2, 51)
-YELLOW = (57, 90, -26, 16, 31, 79)
-GREEN = (48, 76, -41, -11, -26, 7)
+RED = (35, 84, 31, 102, 3, 57)
+YELLOW = (57, 83, -18, 16, 30, 63)
+GREEN = (46, 78, -53, -14, -31, 18)
 
-BLACK = (0, 55, -87, 85, -86, 86)
+BLACK = (3, 62, -70, 70, -60, 60)
 AREA = 2500
 
-SENSIBILITY = [0.90, 0.90, 0.82]
+SENSIBILITY = [0.7, 0.5, 0.5, 0.5]
 
 ## CONFIG MOBILENET
 LABELS = ["H", "S", "U", "N"]
-model_addr = "/sd/0320.kmodel"
+model_addr = "/sd/m.kmodel"
 
 ## GPIO
 fm.register(34,fm.fpioa.UART1_TX)
@@ -76,7 +76,7 @@ def init():
     sensor.set_pixformat(sensor.RGB565)
     sensor.set_framesize(sensor.QVGA)
     sensor.set_windowing((0, 0, 224, 224))
-    sensor.set_contrast(2)
+    sensor.set_contrast(1)
 
     if IS_LEFT:
         sensor.set_hmirror(True)
@@ -149,7 +149,7 @@ def main():
         global mobilenet_counter
         mobilenet_exists = False
 
-        if pmax >=0.5 and pmax <=1 and not LABELS[max_index] == "N":
+        if pmax >=0.55 and pmax <=1 and not LABELS[max_index] == "N":
             max_index = plist.index(pmax)
             mobilenet_exists = True
             print("DETECT:" + LABELS[max_index])
