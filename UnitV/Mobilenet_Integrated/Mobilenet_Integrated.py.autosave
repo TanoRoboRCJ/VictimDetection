@@ -16,7 +16,7 @@ CALIBRATION = None      ######### 試合時は絶対コメントアウトしな�
 ENABLE_BINARY = True    ######### 試合時は絶対コメントアウトしない！！！#########
 
 IS_LEFT = False
-#IS_LEFT = True
+IS_LEFT = True
 
 GAIN = 10.0
 WHITE_BAL = [(68.0, 64.0, 127.0)]
@@ -28,7 +28,7 @@ GREEN = (30, 91, -57, -14, -43, 6)
 BLACK = (3, 69, -50, 50, -50, 50)
 AREA = 4000
 
-SENSIBILITY = [0.7, 0.85, 0.6, 0.5]
+SENSIBILITY = [0.7, 0.9, 0.6, 0.5]
 
 ## CONFIG MOBILENET
 LABELS = ["H", "S", "U", "N"]
@@ -166,7 +166,7 @@ def main():
         else :
             mobilenet_counter = 0
 
-        if mobilenet_counter >= 1:
+        if mobilenet_counter >= 2:
             victim_exists = True
 
             uart.write(LABELS[max_index])
